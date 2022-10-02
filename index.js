@@ -12,10 +12,8 @@ var findUpcomingTrains= async function (departing_station_id, inbound_or_outboun
 		time_in_minutes_to_arrival = result_item.timeToStation/60;
                 time_in_minutes_to_arrival = time_in_minutes_to_arrival.toFixed(0);
                 if ((number_of_trains_returned < number_of_trains_to_return) && (time_in_minutes_to_arrival > length_of_walk_to_station)) {
-                        console.log("Destination: " + result_item.destinationName);
+                        console.log(result_item.destinationName + " in " + time_in_minutes_to_arrival + " minutes\n");
                         //console.log("Platform: " + result_item.platformName);
-                        console.log("Minutes to arrival: " + time_in_minutes_to_arrival);
-                        console.log("");
 			number_of_trains_returned++;
                 }
         }
