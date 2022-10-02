@@ -10,10 +10,11 @@ var makeGetRequest = async function (request) {
 	//console.log(response.data);
 	for (const result_item of response.data) {
 		console.log("Destination: " + result_item.destinationName);
-	        console.log("Platform: " + result_item.platformName);
-        	console.log("Expected Arrival: " + result_item.expectedArrival);
-        	console.log("Time to station: " + result_item.timeToStation);
-		console.log("\n");
+	        //console.log("Platform: " + result_item.platformName);
+        	time_in_minutes_to_arrival = result_item.timeToStation/60;
+		time_in_minutes_to_arrival = time_in_minutes_to_arrival.toFixed(0);
+		console.log("Minutes to arrival: " + time_in_minutes_to_arrival);
+		console.log("");
 	}
     } catch (err) {
        console.error(err);
