@@ -1,7 +1,5 @@
 require('dotenv').config()
-
 api_key = process.env.TFL_API_KEY;
-
 const axios = require('axios');
 
 var findUpcomingTrains= async function (departing_station_id, inbound_or_outbound, number_of_trains_to_return) {
@@ -24,7 +22,24 @@ var findUpcomingTrains= async function (departing_station_id, inbound_or_outboun
     } catch (err) {
        console.error(err);
     }
-
 }
 
+var findDisruptionfromStation = async function (departing_station_id) {
+	try {
+		request = "https://api.tfl.gov.uk/StopPoint/" + departing_station_id  + "/Disruption";
+		//request = "https://api.tfl.gov.uk/StopPoint/HUBNWD/Disruption" + "&api_key=" + api_key; // replaced by above, as for some reason appending the API key to the URL returns a 404
+		response = await axios.get(request);
+		if (response.data.length == 0) {
+			console.log("No disruption\n");
+		} else {
+			console.log("There's disruption from this station: ");
+			console.log(response.data);
+		}
+	}
+	catch (err) {
+		console.error(err)
+	}
+}
+
+findDisruptionfromStation("HUBNWD");
 findUpcomingTrains("HUBNWD", "inbound", 2);
