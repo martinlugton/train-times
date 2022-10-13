@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<title>
+			Voice testing
+		</title>
+	</head>
+	
+	<body>
+		<div id="controls">
+			<button onclick="initialiseSpeechSynthesis();">Speak!</button>
+		</div>
+	
+		<script>
+			var getVoicesandSpeak = function (speechSynthesisObject) {
+				speechSynthesisObject.getVoices();
+				//console.log(speechSynthesisObject.getVoices());
+				const voice = speechSynthesisObject.getVoices()[0]; // arbitrarily use the first speech synthesis object returned.
+				//console.log(voice);
+				
+				var utterance = new SpeechSynthesisUtterance();
+				//console.log("about to speak");
+				utterance.text = "Here is an arbitrary text string for testing some text-to-speech";
+				utterance.voice = voice;
+				utterance.pitch = 1;
+				utterance.rate = 1;
+				utterance.volume = 1;
+				//window.speechSynthesis.speak(utterance);	// We could use this if we hadn't already declared a speech synthesis object				
+				
+				speechSynthesisObject.speak(utterance);
+				document.getElementById("controls").innerHTML = "<button onclick='pauseSpeechSynthesis();'>Pause</button><button onclick='cancelSpeechSynthesis();'>Cancel</button>";
+				
+			}
+
+			var initialiseSpeechSynthesis = function () {
+					if ('speechSynthesis' in window) { // if this browser supports text-to-speech
+						speechSynthesisObject = window.speechSynthesis;
+						timetoLoadVoicesTimeout = setTimeout(getVoicesandSpeak, 1000, speechSynthesisObject); // give Chrome time to asynchronously load voices.
+				} else {
+					console.log("This browser does not support text-to-speech. Try Chrome instead");
+				}
+			} 
+			
+			var pauseSpeechSynthesis = function () {
+				speechSynthesisObject.pause();
+				document.getElementById("controls").innerHTML = "<button onclick='resumeSpeechSynthesis();'>Resume</button><button onclick='cancelSpeechSynthesis();'>Cancel</button>";
+			}
+			
+			var resumeSpeechSynthesis = function () {
+				speechSynthesisObject.resume();
+				document.getElementById("controls").innerHTML = "<button onclick='pauseSpeechSynthesis();'>Pause</button><button onclick='cancelSpeechSynthesis();'>Cancel</button>";
+			}
+			
+			var cancelSpeechSynthesis = function () {
+				speechSynthesisObject.cancel();
+				document.getElementById("controls").innerHTML = "<button onclick='initialiseSpeechSynthesis();'>Speak!</button>"
+			}	
+			
+		</script>
+	</body>
+</html>
