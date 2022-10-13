@@ -44,6 +44,7 @@ var findDisruptionfromStation = async function (departing_station_id) {
 			console.log("Mode: " + response.data[0].mode);
 			console.log("Appearance: " + response.data[0].appearance);
 			console.log("Additional information: " + response.data[0].additionalInformation);
+			return(response.data)
 		}
 	}
 	catch (err) {
@@ -60,9 +61,6 @@ var findDisruptiontomyJourney = async function () {
 //findDisruptiontomyJourney();
 
 
-
-
-
 app.get('/', (req, res) => {
 	//res.send('Hello World!');
 	fs.readFile('speech_test.html', 'utf8', (err, data) => {
@@ -72,6 +70,14 @@ app.get('/', (req, res) => {
                 }
                 res.send(data);
         });
+});
+
+app.get('/disruption', (req, res) => {
+	if (findDisruptionfromStation("HUBNWD")) {
+		res.send("There is disruption");
+	} else {
+		res.send("No disruption");
+	}
 });
 
 app.listen(port, () => {
