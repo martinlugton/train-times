@@ -35,6 +35,7 @@ var findDisruptionfromStation = async function (departing_station_id) {
 		response = await axios.get(request);
 		if (response.data.length == 0) {
 			console.log("No disruption\n");
+			return false;
 		} else { // TODO check that this loop references the data returned correctly
 			console.log("There's disruption from this station: ");
 			console.log(response.data);
