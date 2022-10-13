@@ -74,7 +74,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/disruption', (req, res) => {
-	if (findDisruptionfromStation("HUBNWD")) {
+	if (findDisruptionfromStation("HUBNWD") != false) {
 		res.send("There is disruption");
 	} else {
 		res.send("No disruption");
