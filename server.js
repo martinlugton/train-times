@@ -6,6 +6,8 @@ const express = require('express');
 const app = express();
 const port = 3001;
 
+const fs = require('fs');
+
 var findUpcomingTrains= async function (departing_station_id, inbound_or_outbound, number_of_trains_to_return, length_of_walk_to_station) {
     try {
 	request = "https://api.tfl.gov.uk/Line/london-overground/Arrivals/" + departing_station_id + "?direction=" + inbound_or_outbound + "&api_key=" + api_key;
@@ -62,7 +64,14 @@ var findDisruptiontomyJourney = async function () {
 
 
 app.get('/', (req, res) => {
-	res.send('Hello World!');
+	//res.send('Hello World!');
+	fs.readFile('speech_test.html', 'utf8', (err, data) => {
+                if (err) {
+                        console.error(err);
+                        return;
+                }
+                res.send(data);
+        });
 });
 
 app.listen(port, () => {
