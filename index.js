@@ -2,6 +2,8 @@ require('dotenv').config()
 api_key = process.env.TFL_API_KEY;
 const axios = require('axios');
 
+// TODO take the lie-id as an input to the function, so that instead of only allowing people to query against london-overground, they can query against any line
+
 var findUpcomingTrains= async function (departing_station_id, inbound_or_outbound, number_of_trains_to_return, length_of_walk_to_station) {
     try {
 	request = "https://api.tfl.gov.uk/Line/london-overground/Arrivals/" + departing_station_id + "?direction=" + inbound_or_outbound + "&api_key=" + api_key;
