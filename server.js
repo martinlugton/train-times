@@ -75,9 +75,8 @@ app.get('/', (req, res) => {
 
 app.get('/disruption', async (req, res) => {
 	disruption_status = await findDisruptionfromStation("HUBNWD");
-	console.log(disruption_status);
 	if (disruption_status != false) {
-		res.send("There is disruption");
+		res.send(disruption_status);
 	} else {
 		res.send("No disruption");
 	}
