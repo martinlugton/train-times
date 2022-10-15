@@ -9,6 +9,12 @@
 		<div id="controls">
 			<button onclick="initialiseSpeechSynthesis();">Speak!</button>
 		</div>
+		
+		<div id="disruption">
+		</div>
+		
+		<div id="upcoming">
+		</div>
 	
 		<script>
 			var getVoicesandSpeak = function (speechSynthesisObject) {
@@ -61,6 +67,7 @@
 			  return response.text();
 			}).then(function(data) {
 			  console.log(data);
+			  document.getElementById("disruption").innerHTML = data;
 			}).catch(function() {
 			  console.log("Error");
 			});
@@ -71,6 +78,12 @@
 			  return response.json();
 			}).then(function(data) {
 			  console.log(data);
+			  HTML_to_update = "";
+			  for (const result_item of data) {
+				HTML_to_update = HTML_to_update + "<p>" + result_item + "</p>";
+			  }
+			  //document.getElementById("upcoming").innerHTML = data;
+			  document.getElementById("upcoming").innerHTML = HTML_to_update;
 			}).catch(function() {
 			  console.log("Error");
 			});
