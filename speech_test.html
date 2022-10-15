@@ -55,7 +55,7 @@
 				document.getElementById("controls").innerHTML = "<button onclick='initialiseSpeechSynthesis();'>Speak!</button>"
 			}	
 			
-			var disruption_url = "http://localhost:3001/disruption";
+			var disruption_url = "disruption";
 			
 			fetch(disruption_url).then(function(response) {
 			  return response.text();
@@ -65,7 +65,7 @@
 			  console.log("Error");
 			});
 						
-			var upcoming_url = "http://localhost:3001/upcoming";
+			var upcoming_url = "/upcoming";
 			
 			fetch(upcoming_url).then(function(response) {
 			  return response.json();
