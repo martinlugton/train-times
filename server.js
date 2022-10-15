@@ -14,15 +14,17 @@ var findUpcomingTrains= async function (departing_station_id, inbound_or_outboun
         response = await axios.get(request);
         //console.log(response.data);
         number_of_trains_returned = 0;
+		data_to_return = [];
         for (const result_item of response.data) {
 		time_in_minutes_to_arrival = result_item.timeToStation/60;
                 time_in_minutes_to_arrival = time_in_minutes_to_arrival.toFixed(0);
                 if ((number_of_trains_returned < number_of_trains_to_return) && (time_in_minutes_to_arrival > length_of_walk_to_station)) {
-                        console.log(result_item.destinationName + " in " + time_in_minutes_to_arrival + " minutes\n");
+                        data_to_return.push(result_item.destinationName + " in " + time_in_minutes_to_arrival + " minutes");
                         //console.log("Platform: " + result_item.platformName);
 			number_of_trains_returned++;
                 }
         }
+		return data_to_return;
     } catch (err) {
        console.error(err);
     }
@@ -45,7 +47,7 @@ var findDisruptionfromStation = async function (departing_station_id) {
 			console.log("Mode: " + response.data[0].mode);
 			console.log("Appearance: " + response.data[0].appearance);
 			console.log("Additional information: " + response.data[0].additionalInformation);
-			return(response.data)
+			return(response.data);
 		}
 	}
 	catch (err) {
@@ -53,17 +55,7 @@ var findDisruptionfromStation = async function (departing_station_id) {
 	}
 }
 
-var findDisruptiontomyJourney = async function () {
-	await findDisruptionfromStation("HUBNWD");
-	await findUpcomingTrains("HUBNWD", "inbound", 2, 15);
-
-}	
-
-//findDisruptiontomyJourney();
-
-
 app.get('/', (req, res) => {
-	//res.send('Hello World!');
 	fs.readFile('speech_test.html', 'utf8', (err, data) => {
                 if (err) {
                         console.error(err);
@@ -82,6 +74,11 @@ app.get('/disruption', async (req, res) => {
 	}
 });
 
+app.get('/upcoming', async (req, res) => {
+	upcoming_trains_for_given_station = await findUpcomingTrains("HUBNWD", "inbound", 2, 15);
+	res.send(upcoming_trains_for_given_station);
+});
+
 app.listen(port, () => {
-	console.log('Example app is listening on port ' + port);
+	console.log('Server is listening on port ' + port);
 });
