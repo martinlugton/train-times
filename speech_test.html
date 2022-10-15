@@ -55,6 +55,26 @@
 				document.getElementById("controls").innerHTML = "<button onclick='initialiseSpeechSynthesis();'>Speak!</button>"
 			}	
 			
+			var disruption_url = "http://localhost:3001/disruption";
+			
+			fetch(disruption_url).then(function(response) {
+			  return response.text();
+			}).then(function(data) {
+			  console.log(data);
+			}).catch(function() {
+			  console.log("Error");
+			});
+						
+			var upcoming_url = "http://localhost:3001/upcoming";
+			
+			fetch(upcoming_url).then(function(response) {
+			  return response.json();
+			}).then(function(data) {
+			  console.log(data);
+			}).catch(function() {
+			  console.log("Error");
+			});
+			
 		</script>
 	</body>
 </html>
