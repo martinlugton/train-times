@@ -6,7 +6,7 @@ const axios = require('axios');
 
 var findUpcomingTrains= async function (departing_station_id, inbound_or_outbound, number_of_trains_to_return, length_of_walk_to_station) {
     try {
-	request = "https://api.tfl.gov.uk/Line/london-overground/Arrivals/" + departing_station_id + "?direction=" + inbound_or_outbound + "&api_key=" + api_key;
+		request = "https://api.tfl.gov.uk/Line/london-overground/Arrivals/" + departing_station_id + "?direction=" + inbound_or_outbound + "&api_key=" + api_key;
         response = await axios.get(request);
         //console.log(response.data);
         number_of_trains_returned = 0;
@@ -47,10 +47,85 @@ var findDisruptionfromStation = async function (departing_station_id) {
 	}
 }
 
+var countNumberofOccurencesinArray = function(array, target) {
+        count = 0;
+        array.forEach(element => {
+                if (element == target){
+                        count++;
+                }
+        });
+        return count;
+}
+
+var countNumberofOccurencesin0thElementofArrayItems = function(array, target) { // instead of iterating through an array of strings, as per countNumberofOccurencesinArray, we're iterating through an array of lists, and checking the 0th item of each list against the target
+        count = 0;
+        array.forEach(element => {
+                if (element[0] == target){
+                        count++;
+                }
+        });
+        return count;
+}
+
+var findStopPointsforGivenMode = async function (mode) {
+	try {
+		request = "https://api.tfl.gov.uk/StopPoint/Mode/" + mode; // as elsewhere, providing the API key causes trouble, so omit it.
+		response = await axios.get(request);
+		// console.log(response.data.stopPoints);
+		array_to_return = [];
+		for (individual_station of response.data.stopPoints){
+			if (countNumberofOccurencesin0thElementofArrayItems(array_to_return, individual_station.commonName) == 0 ) { // if this station is not already in our list
+				array_to_return.push([individual_station.commonName, individual_station.id]); // no need to return .modes
+			}
+		}
+		//console.log(array_to_return);
+		return array_to_return;
+	} catch (err) {
+		console.error(err);
+	}
+	
+}
+
+var give_list_of_stoppoint_info = async function (mode){
+	list_of_stoppoints = await findStopPointsforGivenMode(mode);	
+	//console.log(list_of_stoppoints)
+	return list_of_stoppoints;
+}
+
+var give_all_lists_of_stoppoint_info_across_the_three_modes = async function () {
+	list_of_stoppoints = [];
+	tube_stoppoints_to_add = await findStopPointsforGivenMode("tube");	
+	for (item of tube_stoppoints_to_add) {
+		list_of_stoppoints.push(item);
+	}
+	overground_stoppoints_to_add = await findStopPointsforGivenMode("overground");	
+	for (item of overground_stoppoints_to_add) {
+		if (countNumberofOccurencesin0thElementofArrayItems(list_of_stoppoints, item[0]) == 0){ // if this station name is not present already`
+			list_of_stoppoints.push(item);
+		}
+	}
+	elizabeth_line_stoppoints_to_add = await findStopPointsforGivenMode("elizabeth-line");	
+	for (item of elizabeth_line_stoppoints_to_add) {
+		if (countNumberofOccurencesin0thElementofArrayItems(list_of_stoppoints, item[0]) == 0){ // if this station name is not present already`
+			list_of_stoppoints.push(item);
+		}
+	}
+	list_of_stoppoints.sort();
+	//console.log(list_of_stoppoints);
+	for (line of list_of_stoppoints){
+		console.log(line)
+	}
+	// TODO write to CSV
+}
+
 var findDisruptiontomyJourney = async function () {
 	await findDisruptionfromStation("HUBNWD");
 	await findUpcomingTrains("HUBNWD", "inbound", 2, 15);
-
 }	
 
-findDisruptiontomyJourney();
+//findDisruptiontomyJourney();
+
+//print_list_of_stoppoint_info("tube");
+//print_list_of_stoppoint_info("overground"); 
+
+give_all_lists_of_stoppoint_info_across_the_three_modes();
