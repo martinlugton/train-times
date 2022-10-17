@@ -7,7 +7,7 @@
 	
 	<body>
 		<div id="controls">
-			<button onclick="initialiseSpeechSynthesis();">Speak!</button>
+			<!-- <button onclick="initialiseSpeechSynthesis();">Speak!</button> -->
 		</div>
 		
 		<div id="disruption">
@@ -17,16 +17,19 @@
 		</div>
 	
 		<div id="station-selector">
-			<form onsubmit="queryStation()">
+			<form onsubmit="repeatControlLoop()">
 				<label for="station">Choose a station:</label>
-				<select name="station" id="station">
+				<select name="station" id="station" onchange="showModesforStopPoint()">
 					<option value="empty">Please enable javascript</option>
+				</select>
+				<select name="mode" id="mode">
 				</select>
 				<input type="submit">
 			</form>
 		</div>
 	
 		<script>
+		
 			var getVoicesandSpeak = function (speechSynthesisObject) {
 				speechSynthesisObject.getVoices();
 				//console.log(speechSynthesisObject.getVoices());
@@ -35,13 +38,13 @@
 				
 				var utterance = new SpeechSynthesisUtterance();
 				//console.log("about to speak");
-				utterance.text = "Here is an arbitrary text string for testing some text-to-speech";
 				utterance.voice = voice;
 				utterance.pitch = 1;
 				utterance.rate = 1;
 				utterance.volume = 1;
 				//window.speechSynthesis.speak(utterance);	// We could use this if we hadn't already declared a speech synthesis object				
 				
+				utterance.text = document.getElementById("disruption").innerHTML + document.getElementById("upcoming").innerHTML;
 				speechSynthesisObject.speak(utterance);
 				document.getElementById("controls").innerHTML = "<button onclick='pauseSpeechSynthesis();'>Pause</button><button onclick='cancelSpeechSynthesis();'>Cancel</button>";
 				
@@ -71,42 +74,82 @@
 				document.getElementById("controls").innerHTML = "<button onclick='initialiseSpeechSynthesis();'>Speak!</button>"
 			}	
 			
-			var queryStation = function () {
-				console.log("Querying from user input: " + document.getElementById("station").value);
-				event.preventDefault(); // Suppress POSTing the form. Remove this if I'd prefer to POST the data as a query string param.
+	//		var queryStation = function () {
+	//			console.log("Querying from user input: " + document.getElementById("station").value);
+	//			event.preventDefault(); // Suppress POSTing the form. Remove this if I'd prefer to POST the data as a query string param.
+	//		}
+			
+			var showDisruption = function (id) {
+				//var disruption_url = "disruption";			
+				fetch("/disruption" + "?id=" + id).then(function(response) {
+				  return response.text();
+				}).then(function(data) {
+				  //console.log(data);
+				  document.getElementById("disruption").innerHTML = data;
+				}).catch(function() {
+				  console.log("Error");
+				});
 			}
 			
-			var disruption_url = "disruption";
+			var showUpcoming = function (id, mode) {
+				fetch("/upcoming" + "?id=" + id + "&mode=" + mode).then(function(response) {
+				  return response.json();
+				}).then(function(data) {
+				  //console.log(data);
+				  HTML_to_update = "";
+				  for (const result_item of data) {
+					HTML_to_update = HTML_to_update + "<p>" + result_item + "</p>";
+				  }
+				  //document.getElementById("upcoming").innerHTML = data;
+				  document.getElementById("upcoming").innerHTML = HTML_to_update;
+				}).catch(function() {
+				  console.log("Error");
+				});
+			}
 			
-			fetch(disruption_url).then(function(response) {
-			  return response.text();
-			}).then(function(data) {
-			  console.log(data);
-			  document.getElementById("disruption").innerHTML = data;
-			}).catch(function() {
-			  console.log("Error");
-			});
-						
-			var upcoming_url = "/upcoming";
+			var showModesforStopPoint = function () {
+				// console.log("user chose a different station: " + document.getElementById("station").value);
+				for (item of station_data) {
+					if (item.id == document.getElementById("station").value){
+						console.log(item.Station + " has these modes: " + item.modes);
+						modes_supported = []
+						if (item.modes.includes("tube")) {
+							modes_supported.push("tube");
+						}
+						if (item.modes.includes("overground")) {
+							modes_supported.push("london-overground");
+						}
+						if (item.modes.includes("elizabeth-line")) {
+							modes_supported.push("elizabeth-line");
+						}
+					}
+				}
+				HTML_to_update = "";
+				for (const mode of modes_supported) {
+					HTML_to_update = HTML_to_update + "<option value=" + mode + ">" + mode + "</option>";
+				}
+				document.getElementById("mode").innerHTML = HTML_to_update;
+			}
 			
-			fetch(upcoming_url).then(function(response) {
-			  return response.json();
-			}).then(function(data) {
-			  console.log(data);
-			  HTML_to_update = "";
-			  for (const result_item of data) {
-				HTML_to_update = HTML_to_update + "<p>" + result_item + "</p>";
-			  }
-			  //document.getElementById("upcoming").innerHTML = data;
-			  document.getElementById("upcoming").innerHTML = HTML_to_update;
-			}).catch(function() {
-			  console.log("Error");
-			});
+			var showDisruptionandUpcoming = function () {
+				id = document.getElementById("station").value;
+				mode = document.getElementById("mode").value
+				showDisruption(id);
+				showUpcoming(id, mode);
+				initialiseSpeechSynthesis();
+			}
+			
+			var repeatControlLoop = function () {
+				showDisruptionandUpcoming() // return the first status immediately, then wait
+				setInterval(showDisruptionandUpcoming, 60000);
+				event.preventDefault();
+			}
 			
 			fetch("/getStations").then(function(response) {
 			  return response.json();
 			}).then(function(data) {
-			  console.log(data);
+			  //console.log(data);
+			  station_data = data;
 			  HTML_to_update = "";
 			  for (const result_item of data) {
 				HTML_to_update = HTML_to_update + "<option value=" + result_item.id + ">" + result_item.Station + "</option>";

@@ -10,9 +10,11 @@ const fs = require('fs');
 
 const { parse } = require('csv-parse/sync');
 
-var findUpcomingTrains= async function (departing_station_id, inbound_or_outbound, number_of_trains_to_return, length_of_walk_to_station) {
+// TODO handle mode so that it's not hardcoded in the URL
+var findUpcomingTrains= async function (departing_station_id, inbound_or_outbound, number_of_trains_to_return, length_of_walk_to_station, mode) {
     try {
-	request = "https://api.tfl.gov.uk/Line/london-overground/Arrivals/" + departing_station_id + "?direction=" + inbound_or_outbound + "&api_key=" + api_key;
+	// request = "https://api.tfl.gov.uk/Line/london-overground/Arrivals/" + departing_station_id + "?direction=" + inbound_or_outbound + "&api_key=" + api_key;
+	request = "https://api.tfl.gov.uk/Line/" + mode +  " /Arrivals/" + departing_station_id + "?direction=" + inbound_or_outbound + "&api_key=" + api_key;
         response = await axios.get(request);
         //console.log(response.data);
         number_of_trains_returned = 0;
@@ -38,7 +40,7 @@ var findDisruptionfromStation = async function (departing_station_id) {
 		//request = "https://api.tfl.gov.uk/StopPoint/HUBNWD/Disruption" + "&api_key=" + api_key; // replaced by above, as for some reason appending the API key to the URL returns a 404
 		response = await axios.get(request);
 		if (response.data.length == 0) {
-			console.log("No disruption\n");
+			// console.log("No disruption\n");
 			return false;
 		} else { // TODO check that this loop references the data returned correctly
 			console.log("There's disruption from this station: ");
@@ -86,7 +88,8 @@ app.get('/getStations', (req, res) => { // returns a list of JSON objects contai
 });
 
 app.get('/disruption', async (req, res) => {
-	disruption_status = await findDisruptionfromStation("HUBNWD");
+	// disruption_status = await findDisruptionfromStation("HUBNWD");
+	disruption_status = await findDisruptionfromStation(req.query.id);
 	if (disruption_status != false) {
 		res.send(disruption_status);
 	} else {
@@ -95,7 +98,7 @@ app.get('/disruption', async (req, res) => {
 });
 
 app.get('/upcoming', async (req, res) => {
-	upcoming_trains_for_given_station = await findUpcomingTrains("HUBNWD", "inbound", 2, 15);
+	upcoming_trains_for_given_station = await findUpcomingTrains(req.query.id, "inbound", 2, 15, "london-overground");
 	res.send(upcoming_trains_for_given_station);
 });
 
