@@ -16,6 +16,16 @@
 		<div id="upcoming">
 		</div>
 	
+		<div id="station-selector">
+			<form onsubmit="queryStation()">
+				<label for="station">Choose a station:</label>
+				<select name="station" id="station">
+					<option value="empty">Please enable javascript</option>
+				</select>
+				<input type="submit">
+			</form>
+		</div>
+	
 		<script>
 			var getVoicesandSpeak = function (speechSynthesisObject) {
 				speechSynthesisObject.getVoices();
@@ -61,6 +71,11 @@
 				document.getElementById("controls").innerHTML = "<button onclick='initialiseSpeechSynthesis();'>Speak!</button>"
 			}	
 			
+			var queryStation = function () {
+				console.log("Querying from user input: " + document.getElementById("station").value);
+				event.preventDefault(); // Suppress POSTing the form. Remove this if I'd prefer to POST the data as a query string param.
+			}
+			
 			var disruption_url = "disruption";
 			
 			fetch(disruption_url).then(function(response) {
@@ -87,6 +102,20 @@
 			}).catch(function() {
 			  console.log("Error");
 			});
+			
+			fetch("/getStations").then(function(response) {
+			  return response.json();
+			}).then(function(data) {
+			  console.log(data);
+			  HTML_to_update = "";
+			  for (const result_item of data) {
+				HTML_to_update = HTML_to_update + "<option value=" + result_item.id + ">" + result_item.Station + "</option>";
+			  }
+			  document.getElementById("station").innerHTML = HTML_to_update;
+			}).catch(function() {
+			  console.log("Error");
+			});
+			
 			
 		</script>
 	</body>
