@@ -2,6 +2,8 @@ require('dotenv').config()
 api_key = process.env.TFL_API_KEY;
 const axios = require('axios');
 
+// const fs = require('fs');
+
 // TODO take the lie-id as an input to the function, so that instead of only allowing people to query against london-overground, they can query against any line
 
 var findUpcomingTrains= async function (departing_station_id, inbound_or_outbound, number_of_trains_to_return, length_of_walk_to_station) {
@@ -75,7 +77,7 @@ var findStopPointsforGivenMode = async function (mode) {
 		array_to_return = [];
 		for (individual_station of response.data.stopPoints){
 			if (countNumberofOccurencesin0thElementofArrayItems(array_to_return, individual_station.commonName) == 0 ) { // if this station is not already in our list
-				array_to_return.push([individual_station.commonName, individual_station.id]); // no need to return .modes
+				array_to_return.push([individual_station.commonName, individual_station.id, individual_station.modes]);
 			}
 		}
 		//console.log(array_to_return);
@@ -111,11 +113,12 @@ var give_all_lists_of_stoppoint_info_across_the_three_modes = async function () 
 		}
 	}
 	list_of_stoppoints.sort();
+	
 	//console.log(list_of_stoppoints);
-	for (line of list_of_stoppoints){
-		console.log(line)
-	}
-	// TODO write to CSV
+	//for (line of list_of_stoppoints){
+	//	console.log(line)
+	//}
+	return list_of_stoppoints;
 }
 
 var findDisruptiontomyJourney = async function () {
@@ -123,9 +126,23 @@ var findDisruptiontomyJourney = async function () {
 	await findUpcomingTrains("HUBNWD", "inbound", 2, 15);
 }	
 
+var writeDatatoDisk = async function (content_to_write) {
+	const createCsvWriter = require('csv-writer').createArrayCsvWriter;
+	const csvWriter = createCsvWriter({
+		header: ['Station', 'id', 'modes'],
+		path: 'latest_station_data.csv'
+	});
+	csvWriter.writeRecords(content_to_write)
+		.then(() => {
+			console.log('latest_station_data.csv written');
+		});
+}
+
+var findAllStopPointsandWritetoDisk = async function () {
+	list_of_stoppoints_to_store = await give_all_lists_of_stoppoint_info_across_the_three_modes();
+	writeDatatoDisk(list_of_stoppoints_to_store);	
+}
+
 //findDisruptiontomyJourney();
 
-//print_list_of_stoppoint_info("tube");
-//print_list_of_stoppoint_info("overground"); 
-
-give_all_lists_of_stoppoint_info_across_the_three_modes();
+findAllStopPointsandWritetoDisk();

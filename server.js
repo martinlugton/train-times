@@ -8,6 +8,8 @@ const port = 3001;
 
 const fs = require('fs');
 
+const { parse } = require('csv-parse/sync');
+
 var findUpcomingTrains= async function (departing_station_id, inbound_or_outbound, number_of_trains_to_return, length_of_walk_to_station) {
     try {
 	request = "https://api.tfl.gov.uk/Line/london-overground/Arrivals/" + departing_station_id + "?direction=" + inbound_or_outbound + "&api_key=" + api_key;
@@ -63,6 +65,24 @@ app.get('/', (req, res) => {
                 }
                 res.send(data);
         });
+});
+
+app.get('/getStations', (req, res) => { // returns a list of JSON objects containing: Station, id, modes
+	fs.readFile('latest_station_data.csv', 'utf8', (err, data) => {
+		if (err) {
+			console.error(err);
+			return;
+		}
+		const records = parse(data, {
+                columns: true,
+                skip_empty_lines: true,
+        });
+        object_to_return = []
+        for (const individual_line of records) {
+                object_to_return.push(individual_line);
+        }
+		res.send(object_to_return);
+	});
 });
 
 app.get('/disruption', async (req, res) => {

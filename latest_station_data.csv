@@ -1,0 +1,639 @@
+Station,id,modes
+Abbey Wood Station,9100ABWDXR0,elizabeth-line
+Abbey Wood,910GABWDXR,elizabeth-line
+Acton Central Rail Station,4900ACTNCTL1,"bus,overground"
+Acton Central Station,9100ACTNCTL0,overground
+Acton Main Line Rail Station,910GACTONML,"elizabeth-line,bus,national-rail"
+Acton Main Line,9100ACTONML0,"national-rail,elizabeth-line"
+Acton Town Underground Station,4900ZZLUACT1,tube
+Aldgate East Underground Station,4900ZZLUADE1,tube
+Aldgate Underground Station,4900ZZLUALD1,tube
+Alperton Underground Station,4900ZZLUALP1,tube
+Amersham Underground Station,0400ZZLUAMS0,tube
+Amersham,HUBAMR,"bus,tube,national-rail"
+Anerley Rail Station,4900ANERLEY1,"overground,bus"
+Anerley Station,9100ANERLEY0,"national-rail,overground"
+Angel Underground Station,4900ZZLUAGL1,tube
+Archway Underground Station,4900ZZLUACY1,tube
+Arnos Grove Underground Station,4900ZZLUASG1,tube
+Arsenal Underground Station,4900ZZLUASL1,tube
+Baker Street Underground Station,4900ZZLUBST1,tube
+Balham Underground Station,4900ZZLUBLM1,tube
+Balham,HUBBAL,"bus,tube,national-rail"
+Bank Underground Station,4900ZZLUBNK2,tube
+Bank,HUBBAN,"bus,tube,dlr"
+Barbican Underground Station,4900ZZLUBBN1,tube
+Barking Rail Station,4900BARKING1,overground
+Barking Riverside Rail Station,4900BKRVS1,overground
+Barking Riverside Station,9100BKRVS1,overground
+Barking Riverside,910GBKRVS,overground
+Barking Station,9100BARKING1,"overground,national-rail"
+Barking Underground Station,9400ZZLUBKG,tube
+Barking,HUBBKG,"bus,overground,tube,national-rail"
+Barkingside Underground Station,4900ZZLUBKE1,tube
+Barons Court Underground Station,4900ZZLUBSC1,tube
+Battersea Power Station Underground Station,9400ZZBPSUST,tube
+Bayswater Underground Station,4900ZZLUBWT1,tube
+Becontree Underground Station,4900ZZLUBEC1,tube
+Belsize Park Underground Station,4900ZZLUBZP1,tube
+Bermondsey Underground Station,4900ZZLUBMY1,tube
+Bethnal Green Rail Station,4900BTHNLGR1,overground
+Bethnal Green Underground Station,4900ZZLUBLG1,tube
+Blackfriars Underground Station,4900ZZLUBKF0,tube
+Blackfriars,HUBBFR,"bus,tube,national-rail"
+Blackhorse Road Rail Station,4900BLCHSRD1,overground
+Blackhorse Road Station,9100BLCHSRD0,overground
+Blackhorse Road Underground Station,9400ZZLUBLR,tube
+Blackhorse Road,HUBBHO,"tube,bus,overground"
+Bond Street Underground Station,4900ZZLUBND1,tube
+Bond Street,HUBBDS,tube
+Borough Underground Station,4900ZZLUBOR1,tube
+Boston Manor Underground Station,4900ZZLUBOS1,tube
+Bounds Green Underground Station,4900ZZLUBDS1,tube
+Bow Road Underground Station,4900ZZLUBWR1,tube
+Brent Cross Underground Station,4900ZZLUBTX1,tube
+Brentwood Rail Station,9100BRTWOOD1,"elizabeth-line,national-rail"
+Brixton Underground Station,4900ZZLUBXN1,tube
+Brixton,HUBBRX,"bus,tube,national-rail"
+Brockley Rail Station,4900BROCKLY1,"overground,bus"
+Brockley Station,9100BROCKLY0,"overground,national-rail"
+Bromley-By-Bow Underground Station,4900ZZLUBBB1,tube
+Bromley-by-Bow Underground Station,9400ZZLUBBB,tube
+Brondesbury Park Rail Station,4900BRBYPK1,overground
+Brondesbury Park Station,9100BRBYPK0,overground
+Brondesbury Rail Station,4900BRBY1,"overground,bus"
+Brondesbury Station,9100BRBY0,overground
+Bruce Grove Rail Station,4900BRUCGRV1,"overground,bus"
+Bruce Grove Station,9100BRUCGRV0,"overground,national-rail"
+Buckhurst Hill Underground Station,1500ZZLUBKH0,tube
+Burnham (Berks) Rail Station,9100BNHAM0,"national-rail,elizabeth-line"
+Burnt Oak Underground Station,4900ZZLUBTK1,tube
+Bush Hill Park Rail Station,4900BHILLPK1,"overground,bus"
+Bush Hill Park Station,9100BHILLPK0,overground
+Bushey Rail Station,2100BUSHEY0,overground
+Bushey,HUBBSH,"bus,national-rail,overground"
+Caledonian Road & Barnsbury Rail Station,4900CLDNNRB1,"bus,overground"
+Caledonian Road & Barnsbury Station,9100CLDNNRB1,overground
+Caledonian Road Underground Station,4900ZZLUCAR1,tube
+Cambridge Heath (London) Rail Station,4900CAMHTH1,"overground,bus"
+Cambridge Heath Station,9100CAMHTH0,"overground,national-rail"
+Camden Road Rail Station,4900CMDNRD1,"overground,bus"
+Camden Road Station,9100CMDNRD0,overground
+Camden Town Underground Station,4900ZZLUCTN1,tube
+Canada Water Rail Station,4900CNDAW1,overground
+Canada Water Station,9100CNDAW1,overground
+Canada Water Underground Station,9400ZZLUCWR,tube
+Canada Water,HUBZCW,"bus,overground,tube"
+Canary Wharf Crossrail Station,9100CANWHRF0,elizabeth-line
+Canary Wharf Station,4900ZZLUCYF1,tube
+Canary Wharf Underground Station,9400ZZLUCYF,tube
+Canary Wharf,HUBCAW,"bus,elizabeth-line,dlr,tube"
+Canning Town Underground Station,9400ZZLUCGT,tube
+Canning Town,HUBCAN,"bus,dlr,tube"
+Cannon Street Underground Station,4900ZZLUCST,tube
+Cannon Street,HUBCST,"national-rail,bus,tube"
+Canonbury Rail Station,4900CNNB1,"bus,overground"
+Canonbury Station,9100CNNB1,overground
+Canons Park Underground Station,4900ZZLUCPK1,tube
+Carpenders Park Rail Station,2100CRPNDPK0,overground
+Chadwell Heath Rail Station,910GCHDWLHT,"bus,national-rail,elizabeth-line"
+Chadwell Heath,9100CHDWLHT1,"national-rail,elizabeth-line"
+Chalfont & Latimer Underground Station,0400ZZLUCAL0,tube
+Chalfont & Latimer,HUBCFO,"national-rail,tube,bus"
+Chalk Farm Underground Station,4900ZZLUCFM1,tube
+Chancery Lane Underground Station,4900ZZLUCHL1,tube
+Charing Cross Underground Station,4900ZZLUCHX1,tube
+Charing Cross,HUBCHX,"tube,bus,national-rail"
+Chesham Underground Station,0400ZZLUCSM0,tube
+Cheshunt Rail Station,2100CHESHNT0,overground
+Chigwell Underground Station,1500ZZLUCWL0,tube
+Chingford Rail Station,4900CHINGFD1,"bus,overground"
+Chingford Station,9100CHINGFD0,overground
+Chiswick Park Underground Station,4900ZZLUCWP1,tube
+Chorleywood Underground Station,2100ZZLUCYD0,tube
+Chorleywood,HUBCLW,"bus,tube,national-rail"
+Clapham Common Underground Station,4900ZZLUCPC1,tube
+Clapham High Street Rail Station,4900CLPHHS1,overground
+Clapham High Street,9100CLPHHS0,overground
+Clapham Junction Rail Station,4900CLPHMJC1,overground
+Clapham Junction Station,9100CLPHMJC1,"national-rail,overground"
+Clapham Junction,HUBCLJ,"bus,national-rail,overground"
+Clapham North Underground Station,4900ZZLUCPN1,tube
+Clapham South Underground Station,4900ZZLUCPS1,tube
+Clapton Rail Station,4900CLAPTON1,"bus,overground"
+Clapton Station,9100CLAPTON0,"overground,national-rail"
+Cockfosters Underground Station,4900ZZLUCKS1,tube
+Colindale Underground Station,4900ZZLUCND1,tube
+Colliers Wood Underground Station,4900ZZLUCSD1,tube
+Covent Garden Underground Station,4900ZZLUCGN1,tube
+Crouch Hill Rail Station,4900CROUCHH1,"overground,bus"
+Crouch Hill Station,9100CROUCHH0,overground
+Croxley Underground Station,2100ZZLUCXY0,tube
+Crystal Palace Rail Station,4900CRYSTLP1,overground
+Crystal Palace Station,9100CRYSTLP5,overground
+Crystal Palace,HUBCYP,"bus,national-rail,overground"
+Custom House,9100CSTMHSXR,elizabeth-line
+Dagenham East Underground Station,4900ZZLUDGE1,tube
+Dagenham Heathway Underground Station,4900ZZLUDGY1,tube
+Dalston Junction Rail Station,4900DALS1,"overground,bus"
+Dalston Junction Station,9100DALS0,overground
+Dalston Kingsland Rail Station,4900DALSKLD1,"overground,bus"
+Dalston Kingsland Station,9100DALSKL1,overground
+Debden Underground Station,1500ZZLUDBN0,tube
+Denmark Hill Rail Station,4900DENMRKH1,"bus,overground"
+Denmark Hill Station,9100DENMRKH1,"overground,national-rail"
+Dollis Hill Underground Station,4900ZZLUDOH1,tube
+Ealing Broadway Rail Station,910GEALINGB,"elizabeth-line,national-rail"
+Ealing Broadway Underground Station,9400ZZLUEBY,tube
+Ealing Broadway,HUBEAL,"bus,elizabeth-line,tube,national-rail"
+Ealing Common Underground Station,4900ZZLUECM1,tube
+Earl's Court Underground Station,4900ZZLUECT1,tube
+East Acton Underground Station,4900ZZLUEAN1,tube
+East Finchley Underground Station,4900ZZLUEFY1,tube
+East Ham Underground Station,4900ZZLUEHM1,tube
+East Putney Underground Station,4900ZZLUEPY1,tube
+Eastcote Underground Station,4900ZZLUEAE1,tube
+Edgware Road (Bakerloo Line) Underground Station,4900ZZLUERB1,tube
+Edgware Road (Bakerloo) Underground Station,9400ZZLUERB,tube
+Edgware Road (Circle Line) Underground Station,4900ZZLUERC1,tube
+Edgware Underground Station,9400ZZLUEGW,tube
+Edmonton Green Rail Station,4900EDMNGRN1,"overground,bus"
+Edmonton Green Station,9100EDMNGRN0,"overground,national-rail"
+Elephant & Castle Underground Station,4900ZZLUEAC1,tube
+Elephant & Castle,HUBEPH,"tube,bus,national-rail"
+Elm Park Underground Station,4900ZZLUEPK1,tube
+Embankment Underground Station,4900ZZLUEMB1,tube
+Emerson Park Rail Station,4900EMRSPKH1,"overground,bus"
+Emerson Park Station,9100EMRSPKH0,overground
+Enfield Town Rail Station,4900ENFLDTN1,"overground,bus"
+Enfield Town Station,9100ENFLDTN0,overground
+Epping Underground Station,1500ZZLUEPG0,tube
+Euston Square Underground Station,4900ZZLUESQ1,tube
+Euston Station,9100EUSTON0,"overground,national-rail"
+Euston Underground Station,9400ZZLUEUS,tube
+Euston,HUBEUS,"bus,overground,tube,national-rail"
+Fairlop Underground Station,4900ZZLUFLP1,tube
+Farringdon Underground Station,4900ZZLUFCN1,tube
+Farringdon,HUBZFD,"tube,bus,elizabeth-line,national-rail"
+Finchley Central Underground Station,4900ZZLUFYC1,tube
+Finchley Road & Frognal Rail Station,4900FNCHLYR1,"bus,overground"
+Finchley Road & Frognal Station,9100FNCHLRY1,overground
+Finchley Road Underground Station,4900ZZLUFYR1,tube
+Finsbury Park Underground Station,4900ZZLUFPK1,tube
+Finsbury Park,HUBFPK,"national-rail,tube,bus"
+Forest Gate Rail Station,910GFRSTGT,"bus,elizabeth-line"
+Forest Gate Station,9100FRSTGT0,elizabeth-line
+Forest Hill Rail Station,4900FORESTH1,overground
+Forest Hill Station,9100FORESTH0,"national-rail,overground"
+Fulham Broadway Underground Station,4900ZZLUFBY1,tube
+Gants Hill Underground Station,4900ZZLUGTH1,tube
+Gidea Park Rail Station,910GGIDEAPK,"elizabeth-line,bus,national-rail"
+Gidea Park,9100GIDEAPK1,"national-rail,elizabeth-line"
+Gloucester Road Underground Station,4900ZZLUGTR1,tube
+Golders Green Underground Station,4900ZZLUGGN1,tube
+Goldhawk Road Underground Station,4900ZZLUGHK1,tube
+Goodge Street Underground Station,4900ZZLUGDG1,tube
+Goodmayes Rail Station,910GGODMAYS,"national-rail,bus,elizabeth-line"
+Goodmayes,9100GODMAYS0,"elizabeth-line,national-rail"
+Gospel Oak Rail Station,4900GOSPLOK1,"overground,bus"
+Gospel Oak Station,9100GOSPLOK1,overground
+Grange Hill Underground Station,1500ZZLUGGH0,tube
+Great Portland Street Underground Station,4900ZZLUGPS1,tube
+Green Park Underground Station,4900ZZLUGPK1,tube
+Greenford Underground Station,9400ZZLUGFD,tube
+Greenford,HUBGFD,"tube,bus,national-rail"
+Gunnersbury Rail Station,4900GNRSBRY1,overground
+Gunnersbury Station,9100GNRSBRY0,overground
+Gunnersbury Underground Station,9400ZZLUGBY,tube
+Gunnersbury,HUBGUN,"bus,overground,tube"
+Hackney Central Rail Station,4900HACKNYC1,"overground,bus"
+Hackney Central Station,9100HACKNYC1,overground
+Hackney Downs Rail Station,4900HAKNYNM1,"bus,overground"
+Hackney Downs Station,9100HAKNYNM0,overground
+Hackney Wick Rail Station,4900HACKNYW1,"overground,bus"
+Hackney Wick Station,9100HACKNYW0,overground
+Haggerston Rail Station,4900HAGGERS1,overground
+Haggerston Station,9100HAGGERS0,overground
+Hainault Underground Station,9400ZZLUHLT,tube
+Hammersmith (Dist&Picc Line) Underground Station,4900ZZLUHSD1,tube
+Hammersmith (H&C Line) Underground Station,9400ZZLUHSC,tube
+Hammersmith Stn / H&c and Circle Lines,4900ZZLUHSC1,tube
+Hammersmith,HUBHMS,"tube,bus"
+Hampstead Heath Rail Station,4900HMPSTDH1,overground
+Hampstead Heath Station,9100HMPSTDH0,overground
+Hampstead Underground Station,4900ZZLUHTD1,tube
+Hanger Lane Underground Station,4900ZZLUHGR1,tube
+Hanwell Rail Station,910GHANWELL,"bus,elizabeth-line,national-rail"
+Hanwell,9100HANWELL0,"national-rail,elizabeth-line"
+Harlesden Rail Station,4900HARLSDN1,overground
+Harlesden Station,9100HARLSDN0,overground
+Harlesden Underground Station,9400ZZLUHSN,tube
+Harlesden,HUBHDN,"tube,overground,bus"
+Harold Wood Rail Station,910GHRLDWOD,"elizabeth-line,bus,national-rail"
+Harold Wood,9100HRLDWOD2,"elizabeth-line,national-rail"
+Harringay Green Lanes Rail Station,4900HRGYGL1,"bus,overground"
+Harringay Green Lanes Station,9100HRGYGL0,overground
+Harrow & Wealdstone Rail Station,4900HROW1,overground
+Harrow & Wealdstone Station,9100HROWDC1,overground
+Harrow & Wealdstone Underground Station,9400ZZLUHAW,tube
+Harrow & Wealdstone,HUBHRW,"bus,tube,overground,national-rail"
+Harrow-on-the-Hill Underground Station,9400ZZLUHOH,tube
+Harrow-on-the-Hill,HUBHOH,"bus,tube,national-rail"
+Hatch End Rail Station,4900HTCHEND1,"bus,overground"
+Hatch End,9100HTCHEND0,overground
+Hatton Cross Underground Station,4900ZZLUHNX1,tube
+Hayes & Harlington Rail Station,910GHAYESAH,"national-rail,elizabeth-line,bus"
+Hayes & Harlington,9100HAYESAH0,"elizabeth-line,national-rail"
+Headstone Lane Rail Station,4900HEDSTNL1,"overground,bus"
+Headstone Lane Station,9100HEDSTNL0,overground
+Heathrow Airport Terminal 4,HUBHX4,"elizabeth-line,plane,bus,tube,national-rail"
+Heathrow Airport Terminal 5,HUBHX5,"elizabeth-line,plane,bus,tube,national-rail"
+Heathrow Terminal 4 Rail Station,910GHTRWTM4,elizabeth-line
+Heathrow Terminal 4 Underground Station,9400ZZLUHR4,tube
+Heathrow Terminal 4,9100HTRWTM40,elizabeth-line
+Heathrow Terminal 5 Rail Station,910GHTRWTM5,"national-rail,elizabeth-line"
+Heathrow Terminal 5 Underground Station,9400ZZLUHR5,tube
+Heathrow Terminal 5,9100HTRWTM50,"national-rail,elizabeth-line"
+Heathrow Terminals 1-2-3 Underground Station,9400ZZLUHRC2,tube
+Heathrow Terminals 2 & 3 Rail Station,9100HTRWAPT0,"national-rail,elizabeth-line"
+Heathrow Terminals 2 & 3 Underground Station,4900ZZLUHRC1,tube
+Heathrow Terminals 2 & 3,HUBH13,"national-rail,tube,bus,elizabeth-line,plane"
+Hendon Central Underground Station,4900ZZLUHCL1,tube
+High Barnet Underground Station,4900ZZLUHBT1,tube
+High Street Kensington Underground Station,4900ZZLUHSK1,tube
+Highams Park Rail Station,4900HGHMSPK1,"overground,bus"
+Highams Park Station,9100HGHMSPK0,overground
+Highbury & Islington Rail Station,4900HGHI,overground
+Highbury & Islington Station,9100HIGBYA3,overground
+Highbury & Islington Underground Station,9400ZZLUHAI,tube
+Highbury & Islington,HUBHHY,"national-rail,tube,bus,overground"
+Highgate Underground Station,4900ZZLUHGT1,tube
+Hillingdon Underground Station,4900ZZLUHGD1,tube
+Holborn Underground Station,4900ZZLUHBN1,tube
+Holland Park Underground Station,4900ZZLUHPK1,tube
+Holloway Road Underground Station,4900ZZLUHWY1,tube
+Homerton Rail Station,4900HOMRTON1,overground
+Homerton Station,9100HOMRTON1,overground
+Honor Oak Park Rail Station,4900HONROPK1,"overground,bus"
+Honor Oak Park Station,9100HONROPK0,"overground,national-rail"
+Hornchurch Underground Station,4900ZZLUHCH1,tube
+Hounslow Central Underground Station,4900ZZLUHWC1,tube
+Hounslow East Underground Station,4900ZZLUHWE1,tube
+Hounslow West Underground Station,4900ZZLUHWT1,tube
+Hoxton Rail Station,4900HOXTON1,"bus,overground"
+Hoxton Station,9100HOXTON0,overground
+Hyde Park Corner Underground Station,4900ZZLUHPC1,tube
+Ickenham Underground Station,4900ZZLUICK1,tube
+Ilford Rail Station,910GILFORD,"national-rail,elizabeth-line,bus"
+Ilford,9100ILFORD2,"national-rail,elizabeth-line"
+Imperial Wharf Rail Station,4900CSEAH1,overground
+Imperial Wharf Station,9100CSEAH0,"national-rail,overground"
+Imperial Wharf,HUBIMP,"bus,national-rail,overground"
+Iver Rail Station,9100IVER0,"elizabeth-line,national-rail"
+Kennington Underground Station,4900ZZLUKNG1,tube
+Kensal Green Rail Station,4900KENSLG1,overground
+Kensal Green Station,9100KENSLG0,overground
+Kensal Green Underground Station,9400ZZLUKSL,tube
+Kensal Green,HUBKNL,"overground,tube,bus"
+Kensal Rise Rail Station,4900KENR1,"bus,overground"
+Kensal Rise Station,9100KENR0,overground
+Kensington (Olympia) Rail Station,4900KENOLYM1,overground
+Kensington (Olympia) Station,9100KENOLYM0,"national-rail,overground"
+Kensington (Olympia) Underground Station,9400ZZLUKOY,tube
+Kensington (Olympia),HUBKPA,"national-rail,tube,bus,overground"
+Kentish Town Underground Station,9400ZZLUKSH,tube
+Kentish Town West Rail Station,4900KNTSHTW1,"bus,overground"
+Kentish Town West Station,9100KNTSHTW0,overground
+Kentish Town,HUBKTN,"national-rail,tube,bus"
+Kenton Rail Station,4900KTON1,overground
+Kenton Station,9100KTON0,overground
+Kenton Underground Station,9400ZZLUKEN,tube
+Kenton,HUBKNT,"bus,tube,overground"
+Kew Gardens Rail Station,4900KEWGRDN1,overground
+Kew Gardens Station,9100KEWGRDN0,overground
+Kew Gardens Underground Station,9400ZZLUKWG,tube
+Kew Gardens,HUBKWG,"bus,overground,tube"
+Kilburn High Road Rail Station,4900KLBRNHR1,"overground,bus"
+Kilburn High Road Station,9100KLBRNHR1,overground
+Kilburn Park Underground Station,4900ZZLUKPK1,tube
+Kilburn Underground Station,4900ZZLUKBN1,tube
+King's Cross & St Pancras International,HUBKGX,"international-rail,bus,tube,national-rail"
+King's Cross St. Pancras Underground Station,9400ZZLUKSX,tube
+King's Cross St.Pancras Underground Station,4900ZZLUKSX1,tube
+Kingsbury Underground Station,4900ZZLUKBY1,tube
+Knightsbridge Underground Station,4900ZZLUKNB1,tube
+Ladbroke Grove Underground Station,4900ZZLULAD1,tube
+Lambeth North Underground Station,4900ZZLULBN1,tube
+Lancaster Gate Underground Station,4900ZZLULGT1,tube
+Langley (Berks) Rail Station,9100LANGLEY0,"national-rail,elizabeth-line"
+Latimer Road Underground Station,4900ZZLULRD1,tube
+Leicester Square Underground Station,4900ZZLULSQ1,tube
+Leyton Midland Road Rail Station,4900LEYTNMR1,"bus,overground"
+Leyton Midland Road Station,9100LEYTNMR0,overground
+Leyton Underground Station,4900ZZLULYN1,tube
+Leytonstone High Road Rail Station,4900LYTNSHR1,"bus,overground"
+Leytonstone High Road Station,9100LYTNSHR0,overground
+Leytonstone Underground Station,4900ZZLULYS1,tube
+Liverpool Street Station,9100LIVST0,"national-rail,overground,elizabeth-line"
+Liverpool Street Underground Station,4900ZZLULVT3,tube
+Liverpool Street,HUBLST,"overground,bus,elizabeth-line,tube,national-rail"
+London Bridge Underground Station,4900ZZLULNB1,tube
+London Bridge,HUBLBG,"bus,tube,national-rail"
+London Euston Rail Station,4900EUSTON0,overground
+London Fields Rail Station,4900LONFLDS1,overground
+London Fields Station,9100LONFLDS0,"overground,national-rail"
+London Liverpool Street Rail Station,910GLIVST,"national-rail,elizabeth-line,overground"
+London Paddington Rail Station,910GPADTON,"national-rail,elizabeth-line"
+Loughton Underground Station,1500ZZLULGN0,tube
+Maida Vale Underground Station,4900ZZLUMVL1,tube
+Maidenhead Rail Station,9100MDNHEAD0,"elizabeth-line,national-rail"
+Manor House Underground Station,4900ZZLUMRH1,tube
+Manor Park Rail Station,9100MANRPK0,"national-rail,elizabeth-line"
+Mansion House Underground Station,4900ZZLUMSH1,tube
+Marble Arch Underground Station,4900ZZLUMBA1,tube
+Maryland Rail Station,910GMRYLAND,"elizabeth-line,bus"
+Maryland Station,9100MRYLAND0,elizabeth-line
+Marylebone Underground Station,9400ZZLUMYB,tube
+Marylebone,HUBMYB,"tube,bus,national-rail"
+Mile End Underground Station,4900ZZLUMED1,tube
+Mill Hill East Underground Station,4900ZZLUMHL1,tube
+Monument Underground Station,4900ZZLUMMT1,tube
+Moor Park Underground Station,2100ZZLUMPK0,tube
+Moorgate Underground Station,9400ZZLUMGT,tube
+Moorgate,HUBZMG,"bus,tube,national-rail"
+Morden Underground Station,4900ZZLUMDN1,tube
+Mornington Crescent Underground Station,4900ZZLUMTC1,tube
+Neasden Underground Station,4900ZZLUNDN1,tube
+New Cross ELL Rail Station,910GNWCRELL,"overground,national-rail"
+New Cross Gate Rail Station,4900NEWXGTE1,overground
+New Cross Gate Station,9100NEWXGTE0,"national-rail,overground"
+New Cross Gate,HUBNXG,"bus,national-rail,overground"
+New Cross Rail Station,4900NWCRELL1,overground
+New Cross Station,9100NWCRELL1,overground
+New Cross,HUBNWX,"bus,national-rail,overground"
+Newbury Park Underground Station,4900ZZLUNBP1,tube
+Nine Elms Underground Station,9400ZZNEUGST,tube
+North Acton Underground Station,4900ZZLUNAN1,tube
+North Ealing Underground Station,4900ZZLUNEN1,tube
+North Greenwich Underground Station,4900ZZLUNGW1,tube
+North Greenwich,HUBNGW,"bus,cable-car,tube"
+North Harrow Underground Station,4900ZZLUNHA1,tube
+North Wembley Rail Station,4900NWEMBLY1,overground
+North Wembley Station,9100NWEMBLY1,overground
+North Wembley Underground Station,9400ZZLUNWY,tube
+North Wembley,HUBNWB,"tube,bus,overground"
+Northfields Underground Station,4900ZZLUNFD1,tube
+Northolt Underground Station,4900ZZLUNHT1,tube
+Northwick Park Underground Station,4900ZZLUNKP1,tube
+Northwood Hills Underground Station,4900ZZLUNWH1,tube
+Northwood Underground Station,4900ZZLUNOW1,tube
+Norwood Junction Rail Station,4900NORWDJ1,overground
+Norwood Junction Station,9100NORWDJ0,"national-rail,overground"
+Norwood Junction,HUBNWD,"bus,national-rail,overground"
+Notting Hill Gate Underground Station,4900ZZLUNHG1,tube
+Oakwood Underground Station,4900ZZLUOAK1,tube
+Old Street Underground Station,9400ZZLUODS,tube
+Old Street,HUBOLD,"national-rail,tube,bus"
+Osterley Underground Station,4900ZZLUOSY1,tube
+Oval Underground Station,4900ZZLUOVL1,tube
+Oxford Circus Underground Station,4900ZZLUOXC1,tube
+Paddington (H&C Line) Underground Station,4900ZZLUPAH1,tube
+Paddington (H&C Line)-Underground,9400ZZLUPAH,tube
+Paddington Rail Station,9100PADTLL0,elizabeth-line
+Paddington Underground Station,4900ZZLUPAC1,tube
+Paddington,HUBPAD,"national-rail,tube,elizabeth-line,bus"
+Park Royal Underground Station,4900ZZLUPKR1,tube
+Parsons Green Underground Station,4900ZZLUPSG1,tube
+Peckham Rye Rail Station,4900PCKHMRY1,"overground,bus"
+Peckham Rye Station,9100PKHMRYC1,"national-rail,overground"
+Penge West Rail Station,4900PENEW1,"bus,overground"
+Penge West Station,9100PENEW0,"national-rail,overground"
+Perivale Underground Station,4900ZZLUPVL1,tube
+Piccadilly Circus Underground Station,4900ZZLUPCC1,tube
+Pimlico Underground Station,4900ZZLUPCO1,tube
+Pinner Underground Station,4900ZZLUPNR1,tube
+Plaistow Underground Station,4900ZZLUPLW1,tube
+Preston Road Underground Station,4900ZZLUPRD1,tube
+Putney Bridge Underground Station,4900ZZLUPYB1,tube
+Queen's Park Rail Station,4900QPRK,overground
+Queen's Park Station (London),9100QPRK1,"overground,national-rail"
+Queen's Park Underground Station,9400ZZLUQPS,tube
+Queen's Park,HUBQPW,"bus,overground,tube,national-rail"
+Queens Park (London) Rail Station,910GQPRK,"overground,national-rail"
+Queens Road Peckham Rail Station,4900PCKHMQD1,"bus,overground"
+Queens Road Peckham Station,9100PCKHMQD0,"overground,national-rail"
+Queensbury Underground Station,4900ZZLUQBY1,tube
+Queensway Underground Station,4900ZZLUQWY1,tube
+Ravenscourt Park Underground Station,4900ZZLURVP1,tube
+Rayners Lane Underground Station,4900ZZLURYL1,tube
+Reading Rail Station,9100RDNGSTN0,"national-rail,elizabeth-line"
+Rectory Road Rail Station,4900RCTRYRD1,overground
+Rectory Road Station,9100RCTRYD1,"national-rail,overground"
+Redbridge Underground Station,4900ZZLURBG1,tube
+Regent's Park Underground Station,4900ZZLURGP1,tube
+Richmond (London) Rail Station,910GRICHMND,"national-rail,overground"
+Richmond Rail Station,4900RICHMND1,overground
+Richmond Station,9100RICHNLL0,overground
+Richmond Underground Station,9400ZZLURMD,tube
+Richmond,HUBRMD,"national-rail,overground,bus,tube"
+Rickmansworth Underground Station,2100ZZLURKW0,tube
+Rickmansworth,HUBRIC,"national-rail,tube,bus"
+Roding Valley Underground Station,4900ZZLURVY1,tube
+Romford Rail Station,4900ROMFORD1,"bus,overground"
+Romford Station,9100ROMFORD0,overground
+Rotherhithe Rail Station,4900RTHERHI1,"overground,bus"
+Rotherhithe Station,9100RTHERHI1,overground
+Royal Oak Underground Station,4900ZZLURYO1,tube
+Ruislip Gardens Underground Station,4900ZZLURSG1,tube
+Ruislip Manor Underground Station,4900ZZLURSM1,tube
+Ruislip Underground Station,4900ZZLURSP1,tube
+Russell Square Underground Station,4900ZZLURSQ1,tube
+Seven Kings Rail Station,910GSVNKNGS,"national-rail,bus,elizabeth-line"
+Seven Kings,9100SVNKNGS0,"national-rail,elizabeth-line"
+Seven Sisters Rail Station,4900SEVNSIS,overground
+Seven Sisters Station,9100SEVNSIS0,"overground,national-rail"
+Seven Sisters Underground Station,4900ZZLUSVS1,tube
+Seven Sisters,HUBSVS,"tube,bus,overground,national-rail"
+Shadwell Rail Station,4900SHADWEL1,overground
+Shadwell,HUBSDE,"bus,dlr,overground"
+Shenfield Rail Station,9100SHENFLD2,"elizabeth-line,national-rail"
+Shepherd's Bush (Central Line) Underground Stn,4900ZZLUSBC1,tube
+Shepherd's Bush (Central) Underground Station,9400ZZLUSBC,tube
+Shepherd's Bush Market Underground Station,4900ZZLUSBM1,tube
+Shepherd's Bush Rail Station,4900SHPDSB1,overground
+Shepherd's Bush,HUBSPB,"bus,overground,tube,national-rail"
+Shepherds Bush Rail Station,910GSHPDSB,"national-rail,overground"
+Shoreditch High Street Rail Station,4900SHRDHST1,"overground,bus"
+Shoreditch High Street Station,9100SHRDHST0,overground
+Silver Street Rail Station,4900SIVRST1,overground
+Silver Street Station,9100SIVRST0,"overground,national-rail"
+Sloane Square Underground Station,4900ZZLUSSQ1,tube
+Slough Rail Station,9100SLOUGH0,"elizabeth-line,national-rail"
+Snaresbrook Underground Station,4900ZZLUSNB1,tube
+South Acton Rail Station,4900SACTON1,overground
+South Acton Station,9100SACTON0,overground
+South Ealing Underground Station,4900ZZLUSEA1,tube
+South Hampstead Rail Station,4900SHMPSTD1,overground
+South Hampstead Station,9100SHMPSTD0,overground
+South Harrow Underground Station,4900ZZLUSHH1,tube
+South Kensington Underground Station,4900ZZLUSKS1,tube
+South Kenton Rail Station,4900SKENTON1,overground
+South Kenton Station,9100SKENTON1,overground
+South Kenton Underground Station,9400ZZLUSKT,tube
+South Kenton,HUBSOK,"bus,tube,overground"
+South Ruislip Underground Station,9400ZZLUSRP,tube
+South Ruislip,HUBSRU,"national-rail,bus,tube"
+South Tottenham Rail Station,4900STOTNHM1,"overground,bus"
+South Tottenham Station,9100STOTNHM0,overground
+South Wimbledon Underground Station,4900ZZLUSWN1,tube
+South Woodford Underground Station,4900ZZLUSWF1,tube
+Southall Rail Station,910GSTHALL,"national-rail,bus,elizabeth-line"
+Southall Station,9100STHALL0,"national-rail,elizabeth-line"
+Southbury Rail Station,4900SBURY1,overground
+Southbury Station,9100SBURY0,"overground,national-rail"
+Southfields Underground Station,4900ZZLUSFS1,tube
+Southgate Underground Station,4900ZZLUSGT1,tube
+Southwark Underground Station,4900ZZLUSWK1,tube
+St James Street (London) Rail Station,4900STJMSST1,"overground,bus"
+St James Street Station,9100STJMSST0,overground
+St John's Wood Underground Station,4900ZZLUSJW1,tube
+St. James's Park Underground Station,4900ZZLUSJP1,tube
+St. John's Wood Underground Station,9400ZZLUSJW,tube
+St. Paul's Underground Station,4900ZZLUSPU1,tube
+Stamford Brook Underground Station,4900ZZLUSFB1,tube
+Stamford Hill Rail Station,4900STMFDHL1,"overground,bus"
+Stamford Hill Station,9100STMFDHL0,"national-rail,overground"
+Stanmore Underground Station,4900ZZLUSTM1,tube
+Stepney Green Underground Station,4900ZZLUSGN1,tube
+Stockwell Underground Station,4900ZZLUSKW1,tube
+Stoke Newington Rail Station,4900STKNWNG1,"overground,bus"
+Stoke Newington Station,9100STKNWNG0,"overground,national-rail"
+Stonebridge Park Rail Station,4900STNBGPK1,overground
+Stonebridge Park Station,9100STNBGPK0,overground
+Stonebridge Park Underground Station,9400ZZLUSGP,tube
+Stonebridge Park,HUBSBP,"tube,overground,bus"
+Stratford (London) Rail Station,910GSTFD,"overground,elizabeth-line,national-rail"
+Stratford Rail Station,4900STFD1,overground
+Stratford Station,9100STFD4,overground
+Stratford Underground Station,9400ZZLUSTD,tube
+Stratford,HUBSRA,"overground,dlr,tube,bus,international-rail,elizabeth-line,national-rail"
+Sudbury Hill Underground Station,4900ZZLUSUH1,tube
+Sudbury Town Underground Station,4900ZZLUSUT1,tube
+Surrey Quays Rail Station,4900SURREYQ1,"overground,bus"
+Surrey Quays Station,9100SURREYQ1,overground
+Swiss Cottage Underground Station,4900ZZLUSWC1,tube
+Sydenham Rail Station,4900SYDENHM1,overground
+Sydenham Station,9100SYDENHM0,"overground,national-rail"
+Sydenham,HUBSYD,"bus,national-rail,overground"
+Taplow Rail Station,9100TAPLOW0,"national-rail,elizabeth-line"
+Temple Underground Station,4900ZZLUTMP1,tube
+Theobalds Grove Rail Station,2100THBLDSG0,overground
+Theydon Bois Underground Station,1500ZZLUTHB0,tube
+Tooting Bec Underground Station,4900ZZLUTBC1,tube
+Tooting Broadway Underground Station,4900ZZLUTBY1,tube
+Tottenham Court Road Station,9100TOTCTRD0,elizabeth-line
+Tottenham Court Road Underground Station,4900ZZLUTCR3,tube
+Tottenham Court Road,HUBTCR,"tube,bus,elizabeth-line"
+Tottenham Hale Underground Station,9400ZZLUTMH,tube
+Tottenham Hale,HUBTOM,"national-rail,tube,bus"
+Totteridge & Whetstone Underground Station,4900ZZLUTAW1,tube
+Tower Hill Underground Station,4900ZZLUTWH1,tube
+Tufnell Park Underground Station,4900ZZLUTFP1,tube
+Turkey Street Rail Station,4900TURKYST1,"bus,overground"
+Turkey Street Station,9100TURKYST0,"overground,national-rail"
+Turnham Green Underground Station,4900ZZLUTNG1,tube
+Turnpike Lane Underground Station,4900ZZLUTPN1,tube
+Twyford Rail Station,9100TWYFORD0,"national-rail,elizabeth-line"
+Upminster Bridge Underground Station,4900ZZLUUPB1,tube
+Upminster Rail Station,4900UPMNSTR1,"bus,overground"
+Upminster Station,9100UPMNSP61,overground
+Upminster Underground Station,9400ZZLUUPM,tube
+Upminster,HUBUPM,"national-rail,tube,overground,bus"
+Upney Underground Station,4900ZZLUUPY1,tube
+Upper Holloway Rail Station,4900UPRHLWY1,"bus,overground"
+Upper Holloway Station,9100UPRHLWY0,overground
+Upton Park Underground Station,4900ZZLUUPK1,tube
+Uxbridge Underground Station,4900ZZLUUXB1,tube
+Vauxhall Underground Station,4900ZZLUVXL1,tube
+Vauxhall,HUBVXH,"national-rail,tube,bus"
+Victoria Underground Station,4900ZZLUVIC6,tube
+Victoria,HUBVIC,"bus,tube,national-rail"
+Walthamstow Central Rail Station,4900WLTWCEN1,overground
+Walthamstow Central Station,9100WLTWCEN1,overground
+Walthamstow Central Underground Station,9400ZZLUWWL,tube
+Walthamstow Central,HUBWHC,"bus,overground,tube"
+Walthamstow Queens Road Rail Station,4900WLTHQRD1,overground
+Walthamstow Queens Road Station,9100WLTHQRD0,overground
+Wandsworth Road Rail Station,4900WNDSWRD1,"overground,bus"
+Wandsworth Road Station,9100WNDSWRD1,"national-rail,overground"
+Wanstead Park Rail Station,4900WNSTDPK1,"bus,overground"
+Wanstead Park Station,9100WNSTDPK0,overground
+Wanstead Underground Station,4900ZZLUWSD1,tube
+Wapping Rail Station,4900WAPPING1,"bus,overground"
+Wapping Station,9100WAPPING1,overground
+Warren Street Underground Station,4900ZZLUWRR1,tube
+Warwick Avenue Underground Station,4900ZZLUWKA1,tube
+Waterloo Underground Station,4900ZZLUWLO1,tube
+Waterloo,HUBWAT,"tube,bus,national-rail"
+Watford High Street Rail Station,2100WATFDHS0,overground
+Watford Junction Rail Station,2100WATFDJ0,overground
+Watford Junction,HUBWFJ,"bus,national-rail,overground"
+Watford Underground Station,2100ZZLUWAF0,tube
+Wembley Central Rail Station,4900WMBY1,overground
+Wembley Central Station,9100WMBYDC1,overground
+Wembley Central Underground Station,9400ZZLUWYC,tube
+Wembley Central,HUBWMB,"tube,overground,bus,national-rail"
+Wembley Park Underground Station,4900ZZLUWYP1,tube
+West Acton Underground Station,4900ZZLUWTA1,tube
+West Brompton Rail Station,4900WBRMPTN,overground
+West Brompton Station,9100WBRMPTN0,"national-rail,overground"
+West Brompton Underground Station,9400ZZLUWBN,tube
+West Brompton,HUBWBP,"tube,overground,bus,national-rail"
+West Croydon Rail Station,4900WCROYDN1,overground
+West Croydon Station,9100WCROYDN2,"overground,national-rail"
+West Croydon,HUBWCY,"bus,national-rail,overground,tram"
+West Drayton Rail Station,910GWDRYTON,"national-rail,bus,elizabeth-line"
+West Drayton Station,9100WDRYTON1,"national-rail,elizabeth-line"
+West Ealing Rail Station,910GWEALING,"elizabeth-line,national-rail,bus"
+West Ealing Station,9100WEALING0,"national-rail,elizabeth-line"
+West Finchley Underground Station,4900ZZLUWFN1,tube
+West Ham Underground Station,9400ZZLUWHM,tube
+West Ham,HUBWEH,"dlr,bus,tube,national-rail"
+West Hampstead Overground Station,4900WHMDSTD0,overground
+West Hampstead Rail Station,910GWHMDSTD,overground
+West Hampstead Station,4900ZZLUWHP1,tube
+West Hampstead Underground Station,9400ZZLUWHP,tube
+West Hampstead,HUBWHD,"bus,overground,tube,national-rail"
+West Harrow Underground Station,4900ZZLUWHW1,tube
+West Kensington Underground Station,4900ZZLUWKN1,tube
+West Ruislip Underground Station,9400ZZLUWRP,tube
+West Ruislip,HUBWRU,"national-rail,bus,tube"
+Westbourne Park Underground Station,4900ZZLUWSP1,tube
+Westminster Underground Station,4900ZZLUWSM1,tube
+Westminster,HUBWSM,"bus,tube"
+White City Underground Station,4900ZZLUWCY1,tube
+White Hart Lane Rail Station,4900WHHRTLA1,"bus,overground"
+White Hart Lane Station,9100WHHRTLA0,"national-rail,overground"
+Whitechapel Rail Station,4900WCHAPEL1,overground
+Whitechapel Station,9100WCHAPEL1,overground
+Whitechapel Underground Station,9400ZZLUWPL,tube
+Whitechapel,HUBZWL,"tube,overground,elizabeth-line,bus"
+Willesden Green Station,9400ZZLUWIG3,tube
+Willesden Green Underground Station,4900ZZLUWIG1,tube
+Willesden Junction Rail Station,4900WLSDJHL1,overground
+Willesden Junction Station,9100WLSDJHL1,overground
+Willesden Junction Underground Station,9400ZZLUWJN,tube
+Willesden Junction,HUBWIJ,"tube,bus,overground"
+Wimbledon Park Underground Station,4900ZZLUWIP1,tube
+Wimbledon Underground Station,9400ZZLUWIM,tube
+Wimbledon,HUBWIM,"national-rail,tube,tram,bus"
+Wood Green Underground Station,4900ZZLUWOG1,tube
+Wood Lane Underground Station,4900ZZLUWLA1,tube
+Wood Street Rail Station,4900WDST1,"overground,bus"
+Wood Street Station,9100WDST0,overground
+Woodford Underground Station,4900ZZLUWOF1,tube
+Woodgrange Park Rail Station,4900WDGRNPK1,"overground,bus"
+Woodgrange Park Station,9100WDGRNPK0,overground
+Woodside Park Underground Station,4900ZZLUWOP1,tube
+Woolwich Crossrail Station,9100WOLWXR0,elizabeth-line
+Woolwich,910GWOLWXR,"elizabeth-line,bus"
