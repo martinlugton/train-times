@@ -1,33 +1,37 @@
 <html>
 	<head>
 		<title>
-			Voice testing
+			Upcoming trains
 		</title>
+		<meta charset='utf-8'>
+		<meta name='viewport' content='width=device-width, initial-scale=1'>
+		<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT' crossorigin='anonymous'>
 	</head>
 	
-	<body>
-		<div id="controls">
-			<!-- <button onclick="initialiseSpeechSynthesis();">Speak!</button> -->
-		</div>
+	<body style='background-color: black; color:white;'>
+		<div class='container-fluid'>
+			<div id="controls">
+				<!-- <button onclick="initialiseSpeechSynthesis();">Speak!</button> -->
+			</div>
+			
+			<div id="disruption">
+			</div>
+			
+			<div id="upcoming">
+			</div>
 		
-		<div id="disruption">
+			<div id="station-selector">
+				<form onsubmit="repeatControlLoop()">
+					<label for="station">Choose a station:</label>
+					<select name="station" id="station" onchange="showModesforStopPoint()">
+						<option value="empty">Please enable javascript</option>
+					</select>
+					<select name="mode" id="mode">
+					</select>
+					<input type="submit">
+				</form>
+			</div>
 		</div>
-		
-		<div id="upcoming">
-		</div>
-	
-		<div id="station-selector">
-			<form onsubmit="repeatControlLoop()">
-				<label for="station">Choose a station:</label>
-				<select name="station" id="station" onchange="showModesforStopPoint()">
-					<option value="empty">Please enable javascript</option>
-				</select>
-				<select name="mode" id="mode">
-				</select>
-				<input type="submit">
-			</form>
-		</div>
-	
 		<script>
 		
 			var getVoicesandSpeak = function (speechSynthesisObject) {
