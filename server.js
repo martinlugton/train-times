@@ -60,7 +60,7 @@ var findDisruptionfromStation = async function (departing_station_id) {
 }
 
 app.get('/', (req, res) => {
-	fs.readFile('speech_test.html', 'utf8', (err, data) => {
+	fs.readFile('upcoming_trains.html', 'utf8', (err, data) => {
                 if (err) {
                         console.error(err);
                         return;
