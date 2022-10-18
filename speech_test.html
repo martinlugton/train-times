@@ -44,7 +44,14 @@
 				utterance.volume = 1;
 				//window.speechSynthesis.speak(utterance);	// We could use this if we hadn't already declared a speech synthesis object				
 				
-				utterance.text = document.getElementById("disruption").innerHTML + document.getElementById("upcoming").innerHTML;
+				disruption_string = document.getElementById("disruption").innerHTML;
+				//console.log(disruption_string);
+				upcoming_string = document.getElementById("upcoming").innerHTML;
+				stripped_upcoming_upcoming_string = upcoming_string.replace(/&amp;/g, "&");
+				stripped_upcoming_upcoming_string = stripped_upcoming_upcoming_string.replace(/<p>/g, "");
+				stripped_upcoming_upcoming_string = stripped_upcoming_upcoming_string.replace(/<\/p>/g, "\n");
+				utterance.text = disruption_string + "\n" + stripped_upcoming_upcoming_string;
+				console.log(utterance.text);
 				speechSynthesisObject.speak(utterance);
 				document.getElementById("controls").innerHTML = "<button onclick='pauseSpeechSynthesis();'>Pause</button><button onclick='cancelSpeechSynthesis();'>Cancel</button>";
 				
