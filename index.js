@@ -100,18 +100,18 @@ var give_all_lists_of_stoppoint_info_across_the_three_modes = async function () 
 	for (item of tube_stoppoints_to_add) {
 		list_of_stoppoints.push(item);
 	}
-	overground_stoppoints_to_add = await findStopPointsforGivenMode("overground");	
-	for (item of overground_stoppoints_to_add) {
-		if (countNumberofOccurencesin0thElementofArrayItems(list_of_stoppoints, item[0]) == 0){ // if this station name is not present already`
-			list_of_stoppoints.push(item);
-		}
-	}
-	elizabeth_line_stoppoints_to_add = await findStopPointsforGivenMode("elizabeth-line");	
-	for (item of elizabeth_line_stoppoints_to_add) {
-		if (countNumberofOccurencesin0thElementofArrayItems(list_of_stoppoints, item[0]) == 0){ // if this station name is not present already`
-			list_of_stoppoints.push(item);
-		}
-	}
+//	overground_stoppoints_to_add = await findStopPointsforGivenMode("overground");	
+//	for (item of overground_stoppoints_to_add) {
+//		if (countNumberofOccurencesin0thElementofArrayItems(list_of_stoppoints, item[0]) == 0){ // if this station name is not present already`
+//			list_of_stoppoints.push(item);
+//		}
+//	}
+//	elizabeth_line_stoppoints_to_add = await findStopPointsforGivenMode("elizabeth-line");	
+//	for (item of elizabeth_line_stoppoints_to_add) {
+//		if (countNumberofOccurencesin0thElementofArrayItems(list_of_stoppoints, item[0]) == 0){ // if this station name is not present already`
+//			list_of_stoppoints.push(item);
+//		}
+//	}
 	list_of_stoppoints.sort();
 	
 	//console.log(list_of_stoppoints);

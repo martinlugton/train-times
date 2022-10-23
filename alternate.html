@@ -1,0 +1,283 @@
+<html>
+	<head>
+		<title>
+			Upcoming trains
+		</title>
+		<meta charset='utf-8'>
+		<meta name='viewport' content='width=device-width, initial-scale=1'>
+		<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT' crossorigin='anonymous'>
+	</head>
+	
+	<body style='background-color: black; color:white;'>
+		<div class='container-fluid'>
+		
+			<div>
+				<form onsubmit="initiateArrivalsFetch()">
+					
+					<p>
+						
+						<label for="line"></label>
+						<select name="line" id="line-selector" onchange="populateStationsforLine()">
+							<option value="empty">Please enable javascript</option>
+						</select>
+					
+					</p>
+
+
+					<p>
+					
+						<label for="station" id="station-select-label" style='visibility: hidden'></label>
+						<select name="station" id="station-selector" style='visibility: hidden' onchange="getPossibleDestinationsfromStation()">
+							<option value="empty"></option>
+						</select>
+				
+					</p>
+					
+					<p>
+						<label for="destination" id="destination-select-label" style='visibility: hidden'></label>
+						<select name="destination" id="destination-selector" style='visibility: hidden' onchange="displayFinalInputFields()">
+							<option value="empty"></option>
+						</select>
+						
+					</p>
+					
+					<p>
+						<label for="limit" id="limit-select-label" style='visibility: hidden'>Max. number of trains to show</label>
+						<select name="limit" id="limit-selector" style='visibility: hidden'>
+							<option value=1>1</option>
+							<option value=2 selected>2</option>
+							<option value=3>3</option>
+							<option value=4>4</option>
+						</select>
+						
+						<label for="minutes" id="minutes-select-label" style='visibility: hidden'>Length of journey to station (minutes)</label>
+						<select name="minutes" id="minutes-selector" style='visibility: hidden'>
+							<option value=5>5</option>
+							<option value=6>6</option>
+							<option value=7>7</option>
+							<option value=8>8</option>
+							<option value=9>9</option>
+							<option value=10>10</option>
+							<option value=11>11</option>
+							<option value=12>12</option>
+							<option value=13>13</option>
+							<option value=14 selected>14</option>
+							<option value=15>15</option>
+							<option value=16>16</option>
+							<option value=17>17</option>
+							<option value=18>18</option>
+							<option value=19>19</option>
+							<option value=20>20</option>
+							<option value=21>21</option>
+							<option value=22>22</option>
+							<option value=23>23</option>
+							<option value=24>24</option>
+							<option value=25>25</option>
+							<option value=26>26</option>
+							<option value=27>27</option>
+							<option value=28>28</option>
+							<option value=29>29</option>
+							<option value=30>30</option>
+						</select>
+					
+					</p>
+					
+					<p>
+					
+					<input id="submit" type="submit" style='visibility: hidden'>
+					
+					</p>
+					
+				</form>
+			</div>
+		
+		
+			<div id="upcoming">
+			
+			</div>
+			
+		</div>
+		
+		<script>
+		
+		var getLines = async function () {
+				fetch("https://api.tfl.gov.uk/Line/Mode/tube,overground,dlr,elizabeth-line,tram/Route").then(function(response) {
+				  return response.json();
+				}).then(function(data) {
+					lines_to_return = [];
+					i = 0;
+					while (i < data.length) {
+						lines_to_return.push([data[i].name, data[i].id]);
+						i++; 	
+					}
+					iterator = 0;
+					inner_html_for_line_select_object = "<option value = ''>Choose a line</option>";
+					while (iterator < lines_to_return.length) {
+						inner_html_for_line_select_object = inner_html_for_line_select_object + "<option value='" + lines_to_return[iterator][1] + "'>" + lines_to_return[iterator][0] + "</option>";						
+						iterator++;
+					}
+					document.getElementById("line-selector").innerHTML = inner_html_for_line_select_object;
+				}).catch(function(err) {
+				  console.log(err)
+				});
+		}	
+		
+		var getStationsforLine = async function (line) {
+			try {
+				console.log("Getting stations for " + line + " line");
+				request = "https://api.tfl.gov.uk/line/" + line + "/Arrivals";
+				response = await fetch(request);
+				data = await response.json();			
+				i = 0;
+				stations_to_return = []
+				while (i < data.length) {
+					if (!stations_to_return.includes(data[i].stationName)) { // if this station isn't in our list, add it
+							stations_to_return.push(data[i].stationName);
+					}	
+					i++; 	
+				}
+				stations_to_return.sort();
+				// console.log(stations_to_return);
+				return stations_to_return;		
+			} catch (err) {
+				console.error(err);
+			}	
+		}
+		
+		var populateStationsforLine = async function () {
+			line_of_interest = document.getElementById("line-selector").value; // the line selected by the user
+			stations_for_this_line = await getStationsforLine(line_of_interest);
+			iterator = 0;
+			inner_html_for_station_select_object = "<option value = ''>Choose a station</option>";
+			while (iterator < stations_for_this_line.length) {
+				// inner_html_for_station_select_object = inner_html_for_station_select_object + "<option value='" + stations_for_this_line[iterator] + "'>" + stations_for_this_line[iterator] + "</option>";	// switching " for ' string delimiter in javascript to allow king's cross, and similar stations with apostrophes to be handled without having to escape and then translate back
+				inner_html_for_station_select_object = inner_html_for_station_select_object + '<option value="' + stations_for_this_line[iterator] + '">' + stations_for_this_line[iterator] + '</option>';						
+				iterator++;
+			}
+			document.getElementById("station-selector").innerHTML = inner_html_for_station_select_object;			
+			document.getElementById("station-select-label").setAttribute("style", "visibility: visible"); 
+			document.getElementById("station-selector").setAttribute("style", "visibility: visibler"); 
+		}
+		
+		var upcomingArrivals = async function (line, station) { // removed direction parameter as the API returns inconsistent data here		
+			try {
+				request = "https://api.tfl.gov.uk/line/" + line + "/Arrivals";
+				response = await fetch(request);
+				data = await response.json();			
+				i = 0;
+				upcomingTrains = [];
+				while (i < data.length) {
+					if (data[i].stationName == station) { // if this is the departure station we're interested in
+						minutesToStation = data[i].timeToStation/60;
+						minutesToStation = minutesToStation.toFixed(0);
+						upcomingTrains.push ([data[i].destinationName, minutesToStation]);
+					}
+					i++; 	
+				}
+				//console.log(upcomingTrains);
+				return upcomingTrains;		
+			} catch (err) {
+				console.error(err);
+			}
+		}
+		
+		var getPossibleDestinationsfromStation = async function () {
+			line = document.getElementById("line-selector").value; // the line selected by the user
+			station = document.getElementById("station-selector").value; // the line selected by the user
+			console.log("Getting possible destinations from " + station + " on " + line + " line");
+			try {
+				upcoming_arrivals_for_this_station = await upcomingArrivals(line, station);
+				i = 0;
+				possible_destinations = [];
+				while (i < upcoming_arrivals_for_this_station.length) {
+					if (!possible_destinations.includes(upcoming_arrivals_for_this_station[i][0])) { // if this station isn't in our list, add it	
+						possible_destinations.push(upcoming_arrivals_for_this_station[i][0]);
+					}
+					i++; 	
+				}
+				//console.log(possible_destinations);
+				iterator = 0;
+				inner_html_for_destination_select_object = "<option value = ''>Choose a destination</option>";
+				while (iterator < possible_destinations.length) {
+					// inner_html_for_destination_select_object = inner_html_for_destination_select_object + "<option value='" + possible_destinations[iterator] + "'>" + possible_destinations[iterator] + "</option>"; // as per above function, switching string delimiters between " and ' to allow for king's cross and similar to be handled without escaping
+					inner_html_for_destination_select_object = inner_html_for_destination_select_object + '<option value="' + possible_destinations[iterator] + '">' + possible_destinations[iterator] + '</option>';						
+					iterator++;
+				}
+				document.getElementById("destination-selector").innerHTML = inner_html_for_destination_select_object;			
+				document.getElementById("destination-select-label").setAttribute("style", "visibility: visible"); 
+				document.getElementById("destination-selector").setAttribute("style", "visibility: visibler"); 
+				
+			} catch (err) {
+				console.error(err);
+			}
+		}
+		
+		function compareArrivalTimeObjects (a, b) {
+			if (Number(a[1]) < Number(b[1])){ // if a leaves before b
+				return -1;
+			}
+			if (Number(a[1]) > Number(b[1])){ // if b leaves before a
+				return 1;
+			}
+			return 0; // if both leave at the same time
+		}
+		
+		var printUpcomingArrivals = async function (line, station, destination, count, minutes) {
+			result_object = await upcomingArrivals(line, station);
+			result_object.sort(compareArrivalTimeObjects);
+			numberReturned = 0;
+			numberofAvailableArrivals = result_object.length;
+			i = 0;
+			inner_html_to_write = "";
+			while ((numberReturned < count) && (i < numberofAvailableArrivals)){
+				if (result_object[i][0] == destination){ // if the train is going to the desired destination
+					minutes_to_train = parseInt(result_object[i][1]);
+					minutes = parseInt(minutes);
+					if (minutes_to_train >= minutes ) {// if the user can get to this train before it leaves
+						// console.log(result_object[i][0] + " " + result_object[i][1] + " minutes"); // destinationName, // minutestoStation
+						inner_html_to_write = inner_html_to_write + "<p>" + result_object[i][0] + " " + result_object[i][1] + " minutes</p>";
+						numberReturned++;
+					}
+				}
+				i++;
+			}
+			document.getElementById("upcoming").innerHTML = inner_html_to_write;			
+		}
+		
+		var initiateArrivalsFetch = async function () {
+			line = document.getElementById("line-selector").value; // the line selected by the user
+			station = document.getElementById("station-selector").value; // the line selected by the user
+			destination = document.getElementById("destination-selector").value; // the destination selected by the user
+			count = document.getElementById("limit-selector").value; // the destination selected by the user
+			minutes = document.getElementById("minutes-selector").value; // the destination selected by the user
+			
+			console.log("Getting upcoming arrivals for " + line + " line from " + station);
+			printUpcomingArrivals(line, station, destination, count, minutes);
+			
+			event.preventDefault(); // stop the form doing a postback to this URL
+		}
+		
+		var displayFinalInputFields = function () { // after confirming the line and station, reveal the final 2 user input fields
+			document.getElementById("limit-select-label").setAttribute("style", "visibility: visible"); 
+			document.getElementById("limit-selector").setAttribute("style", "visibility: visibler"); 
+			document.getElementById("minutes-select-label").setAttribute("style", "visibility: visible"); 
+			document.getElementById("minutes-selector").setAttribute("style", "visibility: visibler"); 
+			document.getElementById("submit").setAttribute("style", "visibility: visibler");
+		}
+		
+		getLines();
+		//getStationsforLine("metropolitan");
+		//upcomingArrivals("london-overground", "Norwood Junction Rail Station");
+		//upcomingArrivals("london-overground", "Norwood Junction Rail Station");
+		
+		//upcomingArrivals("metropolitan", "North Harrow Underground Station");
+		
+		// getPossibleDestinationsfromStation("london-overground", "Norwood Junction Rail Station");
+
+
+		//printUpcomingArrivals("metropolitan", "North Harrow Underground Station", 3);
+		//printUpcomingArrivals("london-overground", "Norwood Junction Rail Station", 3);
+			
+		</script>
+	</body>
+</html>
