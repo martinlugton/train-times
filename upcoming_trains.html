@@ -286,31 +286,37 @@
 			document.getElementById("submit").setAttribute("style", "visibility: visible");
 		}
 		
-		var getVoicesandSpeak = function () {
-			if ('speechSynthesis' in window) { // if this browser supports text-to-speech
-				speechSynthesisObject = window.speechSynthesis;
-				speechSynthesisObject.getVoices();
-				const voice = speechSynthesisObject.getVoices()[0]; // arbitrarily use the first speech synthesis object returned.
-				var utterance = new SpeechSynthesisUtterance();
-				utterance.voice = voice;
-				utterance.pitch = 1;
-				utterance.rate = 1;
-				utterance.volume = 1;		
-				
-				console.log("let's do speech synthesis");
-				
-				upcoming_string = document.getElementById("upcoming").innerHTML;
-				stripped_upcoming_upcoming_string = upcoming_string.replace(/&amp;/g, "&");
-				stripped_upcoming_upcoming_string = stripped_upcoming_upcoming_string.replace(/<p>/g, "");
-				stripped_upcoming_upcoming_string = stripped_upcoming_upcoming_string.replace(/<\/p>/g, "\n");
-				utterance.text = stripped_upcoming_upcoming_string;
-				console.log(utterance.text);
-				speechSynthesisObject.speak(utterance);
-				document.getElementById("controls").innerHTML = "<button onclick='pauseSpeechSynthesis();'>Pause</button><button onclick='cancelSpeechSynthesis();'>Cancel</button>";		
-				
+		var getVoicesandSpeak = function (speechSynthesisObject) {	
+		voices = speechSynthesisObject.getVoices();
+		// console.log(voices);
+		
+		found_suitable_voice = false;
+		i = 0;
+		while (found_suitable_voice == false) {
+			if (voices[i].lang == "en-GB") {
+				found_suitable_voice = true;	
 			} else {
-				console.log("This browser does not support text-to-speech. Try Chrome instead");
+				i++;
 			}
+		}
+		const voice = voices[i]; // use the first en-GB voice we find
+		// PREVIOUS CODE // const voice = speechSynthesisObject.getVoices()[0]; // arbitrarily use the first speech synthesis object returned.
+		
+		
+		var utterance = new SpeechSynthesisUtterance();
+		utterance.voice = voice;
+		utterance.pitch = 1;
+		utterance.rate = 1;
+		utterance.volume = 1;		
+		
+		upcoming_string = document.getElementById("upcoming").innerHTML;
+		stripped_upcoming_upcoming_string = upcoming_string.replace(/&amp;/g, "&");
+		stripped_upcoming_upcoming_string = stripped_upcoming_upcoming_string.replace(/<p>/g, "");
+		stripped_upcoming_upcoming_string = stripped_upcoming_upcoming_string.replace(/<\/p>/g, "\n");
+		utterance.text = stripped_upcoming_upcoming_string;
+		console.log(utterance.text);
+		speechSynthesisObject.speak(utterance);
+		document.getElementById("controls").innerHTML = "<button onclick='pauseSpeechSynthesis();'>Pause</button><button onclick='cancelSpeechSynthesis();'>Cancel</button>";		
 		}
 	
 		var pauseSpeechSynthesis = function () {
@@ -329,11 +335,16 @@
 		}	
 		
 		var loopDataUpdateandSpeak = function () {
-			// Do an initial call of both the below functions, before setting them to loop every 60 seconds
-			loopingArrivalsFetch();
-			setTimeout(getVoicesandSpeak, 1000); // Delay the speech synthesis call to give the TFL API time to return
-			setInterval(loopingArrivalsFetch, 60000); // Fetch arrival data every 60 seconds
-			setTimeout(setInterval, 1000, getVoicesandSpeak, 60000); // Fetch arrival data every 60 seconds. Set this running 1 second after loopingArrivalsFetch to give that function time to update the DOM so that we can read out the latest data
+			if ('speechSynthesis' in window) { // if this browser supports text-to-speech
+				speechSynthesisObject = window.speechSynthesis;
+				// Do an initial call of both the below functions, before setting them to loop every 60 seconds
+				loopingArrivalsFetch();
+				setTimeout(getVoicesandSpeak, 1000, speechSynthesisObject); // Delay the speech synthesis call to give the TFL API time to return, and Chrome's voice object time to load
+				setInterval(loopingArrivalsFetch, 60000); // Fetch arrival data every 60 seconds
+				setTimeout(setInterval, 1000, getVoicesandSpeak, 60000, speechSynthesisObject); // Fetch arrival data every 60 seconds. Set this running 1 second after loopingArrivalsFetch to give that function time to update the DOM so that we can read out the latest data
+			} else {
+				console.log("This browser does not support text-to-speech. Try Chrome instead");
+			}			
 		}
 		
 		var repeatControlLoop = function () {
