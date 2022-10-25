@@ -64,6 +64,11 @@
 						
 						<label for="minutes" id="minutes-select-label" style='visibility: hidden'>Length of journey to station (minutes)</label>
 						<select name="minutes" id="minutes-selector" style='visibility: hidden'>
+							<option value=0>0</option>
+							<option value=1>1</option>
+							<option value=2>2</option>
+							<option value=3>3</option>
+							<option value=4>4</option>
 							<option value=5>5</option>
 							<option value=6>6</option>
 							<option value=7>7</option>
@@ -121,6 +126,37 @@
 		</div>
 		
 		<script>
+		
+		var returnNumbersfromString = function (string) {
+			return_object = []
+			iterator = 0;
+			current_number_constructor = "";
+			while (iterator < string.length) {
+				//console.log("Looking at character " + string[iterator] + " current_number_constructor is: " + current_number_constructor);
+				if ((isNaN(string[iterator])) || (string[iterator] == " ") || (string[iterator] == "\n") ) { // whitespace and newlines need handling specifically, as they aren't considered 'not a number'
+					//console.log(string[iterator] + " is not a number");
+					if (current_number_constructor.length > 0) { // if there's anything in the current number object, add it to the return object
+						return_object.push(current_number_constructor);
+						current_number_constructor = ""; // set back to being empty
+					}
+				}
+				else {
+					//console.log(string[iterator] + " is a number");
+					current_number_constructor = current_number_constructor + string[iterator];
+				}
+				iterator++;
+			}
+			if (current_number_constructor.length > 0) { // catching numbers that run to the end of the string
+					return_object.push(current_number_constructor);
+				}
+			//console.log(return_object);
+			return return_object;
+		}
+		
+		var returnCountofSubstringinString = function (substring, string) {
+			count = string.split(substring).length -1;
+			return count;
+		}
 		
 		var getLines = async function () {
 				fetch("https://api.tfl.gov.uk/Line/Mode/tube,overground,dlr,elizabeth-line,tram/Route").then(function(response) {
@@ -285,8 +321,8 @@
 			line = document.getElementById("line-selector").value; // the line selected by the user
 			station = document.getElementById("station-selector").value; // the line selected by the user
 			destination = document.getElementById("destination-selector").value; // the destination selected by the user
-			count = document.getElementById("limit-selector").value; // the destination selected by the user
-			minutes = document.getElementById("minutes-selector").value; // the destination selected by the user
+			count = document.getElementById("limit-selector").value; // the max. number of arrival items to show selected by the user
+			minutes = document.getElementById("minutes-selector").value; // the time needed to get to the station selected by the user
 			printUpcomingArrivals(line, station, destination, count, minutes);
 		}
 		
@@ -325,7 +361,53 @@
 		stripped_upcoming_upcoming_string = upcoming_string.replace(/&amp;/g, "&");
 		stripped_upcoming_upcoming_string = stripped_upcoming_upcoming_string.replace(/<p>/g, "");
 		stripped_upcoming_upcoming_string = stripped_upcoming_upcoming_string.replace(/<\/p>/g, "\n");
-		utterance.text = stripped_upcoming_upcoming_string;
+		
+		
+		
+		number_of_arrivals = returnCountofSubstringinString ("minutes", stripped_upcoming_upcoming_string);
+		// console.log(number_of_arrivals + " arrivals to speak");		
+		string_to_speak = document.getElementById("destination-selector").value + " in ";
+		minutes_to_speak = returnNumbersfromString(stripped_upcoming_upcoming_string); // returns a list of minutes (strings)
+		iterator = 0;
+		if (minutes_to_speak.length == 1) { // if we only have one result object
+			//string_to_speak = string_to_speak + minutes_to_speak[i] + " minutes. "
+			if (minutes_to_speak[0] == "1") {
+				string_to_speak = string_to_speak + minutes_to_speak[0] + " minute. "
+			} else {
+				string_to_speak = string_to_speak + minutes_to_speak[0] + " minutes. "
+			}
+		}
+		else {
+			while (iterator < minutes_to_speak.length) {	
+			if (iterator == minutes_to_speak.length - 1 ) { // if we're on the final item in the list 
+				// string_to_speak = string_to_speak + minutes_to_speak[iterator] + " minutes. "
+				
+				if (minutes_to_speak[iterator] == "1") {
+					string_to_speak = string_to_speak + minutes_to_speak[iterator] + " minute. "
+				} else {
+					string_to_speak = string_to_speak + minutes_to_speak[iterator] + " minutes. "
+				}
+				
+				
+			} else {
+				// string_to_speak = string_to_speak + minutes_to_speak[iterator] + " minutes, and "
+				
+				if (minutes_to_speak[iterator] == "1") {
+					string_to_speak = string_to_speak + minutes_to_speak[iterator] + " minute, and "
+				} else {
+					string_to_speak = string_to_speak + minutes_to_speak[iterator] + " minutes, and "
+				}
+				
+				
+			}
+			iterator++; 	
+			}
+		}
+		
+		time_remaining_before_you_need_to_leave_for_earliest_train = parseInt(minutes_to_speak[0]) - parseInt(document.getElementById("minutes-selector").value);
+		string_to_speak = string_to_speak + "Leave in " + time_remaining_before_you_need_to_leave_for_earliest_train + " minutes.";
+		utterance.text = string_to_speak;
+	//	utterance.text = stripped_upcoming_upcoming_string;
 		console.log(utterance.text);
 		speechSynthesisObject.speak(utterance);
 		document.getElementById("controls").innerHTML = "<button onclick='pauseSpeechSynthesis();'>Pause</button><button onclick='cancelSpeechSynthesis();'>Cancel</button>";		
@@ -344,6 +426,7 @@
 		var cancelSpeechSynthesis = function () {
 			speechSynthesisObject.cancel();
 			document.getElementById("controls").innerHTML = "<button onclick='initialiseSpeechSynthesis();'>Speak!</button>"
+			// TODO stop loop 
 		}	
 		
 		var loopDataUpdateandSpeak = function () {
@@ -351,11 +434,12 @@
 				speechSynthesisObject = window.speechSynthesis;
 				// Do an initial call of both the below functions, before setting them to loop every 60 seconds
 				loopingArrivalsFetch();
-				setTimeout(getVoicesandSpeak, 1000, speechSynthesisObject); // Delay the speech synthesis call to give the TFL API time to return, and Chrome's voice object time to load
+				setTimeout(getVoicesandSpeak, 5000, speechSynthesisObject); // Delay the speech synthesis call to give the TFL API time to return, and Chrome's voice object time to load
 				setInterval(loopingArrivalsFetch, 60000); // Fetch arrival data every 60 seconds
-				setTimeout(setInterval, 1000, getVoicesandSpeak, 60000, speechSynthesisObject); // Fetch arrival data every 60 seconds. Set this running 1 second after loopingArrivalsFetch to give that function time to update the DOM so that we can read out the latest data
+				setTimeout(setInterval, 5000, getVoicesandSpeak, 60000, speechSynthesisObject); // Fetch arrival data every 60 seconds. Set this running 5 seconds after loopingArrivalsFetch to give that function time to update the DOM so that we can read out the latest data
+				document.getElementById("request_loop_and_speak").setAttribute("style", "visibility: hidden"); 
 			} else {
-				console.log("This browser does not support text-to-speech. Try Chrome instead");
+				console.log("This browser does not support text-to-speech. Try Chrome or Firefox");
 			}			
 		}
 		
@@ -365,7 +449,9 @@
 		}
 		
 		getLines();
-			
+		
+		// returnNumbersfromString("5678, 1234, 1, lemonade876test! testing testing 123");
+		
 		</script>
 	</body>
 </html>
