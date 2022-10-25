@@ -365,52 +365,105 @@
 		
 		
 		number_of_arrivals = returnCountofSubstringinString ("minutes", stripped_upcoming_upcoming_string);
-		// console.log(number_of_arrivals + " arrivals to speak");		
-		string_to_speak = document.getElementById("destination-selector").value + " in ";
-		minutes_to_speak = returnNumbersfromString(stripped_upcoming_upcoming_string); // returns a list of minutes (strings)
-		iterator = 0;
-		if (minutes_to_speak.length == 1) { // if we only have one result object
-			//string_to_speak = string_to_speak + minutes_to_speak[i] + " minutes. "
-			if (minutes_to_speak[0] == "1") {
-				string_to_speak = string_to_speak + minutes_to_speak[0] + " minute. "
-			} else {
-				string_to_speak = string_to_speak + minutes_to_speak[0] + " minutes. "
-			}
-		}
-		else {
-			while (iterator < minutes_to_speak.length) {	
-			if (iterator == minutes_to_speak.length - 1 ) { // if we're on the final item in the list 
-				// string_to_speak = string_to_speak + minutes_to_speak[iterator] + " minutes. "
-				
-				if (minutes_to_speak[iterator] == "1") {
-					string_to_speak = string_to_speak + minutes_to_speak[iterator] + " minute. "
+		console.log(number_of_arrivals);
+		if (number_of_arrivals > 0 ) {
+			
+				// console.log(number_of_arrivals + " arrivals to speak");		
+			string_to_speak = document.getElementById("destination-selector").value + " in ";
+			minutes_to_speak = returnNumbersfromString(stripped_upcoming_upcoming_string); // returns a list of minutes (strings)
+			iterator = 0;
+			if (minutes_to_speak.length == 1) { // if we only have one result object
+				//string_to_speak = string_to_speak + minutes_to_speak[i] + " minutes. "
+				if (minutes_to_speak[0] == "1") {
+					string_to_speak = string_to_speak + minutes_to_speak[0] + " minute. "
 				} else {
-					string_to_speak = string_to_speak + minutes_to_speak[iterator] + " minutes. "
+					string_to_speak = string_to_speak + minutes_to_speak[0] + " minutes. "
 				}
-				
-				
-			} else {
-				// string_to_speak = string_to_speak + minutes_to_speak[iterator] + " minutes, and "
-				
-				if (minutes_to_speak[iterator] == "1") {
-					string_to_speak = string_to_speak + minutes_to_speak[iterator] + " minute, and "
+			}
+			else {
+				while (iterator < minutes_to_speak.length) {	
+				if (iterator == minutes_to_speak.length - 1 ) { // if we're on the final item in the list 
+					// string_to_speak = string_to_speak + minutes_to_speak[iterator] + " minutes. "
+					
+					if (minutes_to_speak[iterator] == "1") {
+						string_to_speak = string_to_speak + minutes_to_speak[iterator] + " minute. "
+					} else {
+						string_to_speak = string_to_speak + minutes_to_speak[iterator] + " minutes. "
+					}
+					
+					
 				} else {
-					string_to_speak = string_to_speak + minutes_to_speak[iterator] + " minutes, and "
+					// string_to_speak = string_to_speak + minutes_to_speak[iterator] + " minutes, and "
+					
+					if (minutes_to_speak[iterator] == "1") {
+						string_to_speak = string_to_speak + minutes_to_speak[iterator] + " minute, and "
+					} else {
+						string_to_speak = string_to_speak + minutes_to_speak[iterator] + " minutes, and "
+					}
+					
+					
 				}
-				
-				
+				iterator++; 	
+				}
 			}
-			iterator++; 	
-			}
+			
+			time_remaining_before_you_need_to_leave_for_earliest_train = parseInt(minutes_to_speak[0]) - parseInt(document.getElementById("minutes-selector").value);
+			string_to_speak = string_to_speak + "Leave in " + time_remaining_before_you_need_to_leave_for_earliest_train + " minutes.";
+			utterance.text = string_to_speak;
+		//	utterance.text = stripped_upcoming_upcoming_string;
+			console.log(utterance.text);
+			speechSynthesisObject.speak(utterance);
+			document.getElementById("controls").innerHTML = "<button onclick='pauseSpeechSynthesis();'>Pause</button><button onclick='cancelSpeechSynthesis();'>Cancel</button>";		
+			
+		
 		}
 		
-		time_remaining_before_you_need_to_leave_for_earliest_train = parseInt(minutes_to_speak[0]) - parseInt(document.getElementById("minutes-selector").value);
-		string_to_speak = string_to_speak + "Leave in " + time_remaining_before_you_need_to_leave_for_earliest_train + " minutes.";
-		utterance.text = string_to_speak;
-	//	utterance.text = stripped_upcoming_upcoming_string;
-		console.log(utterance.text);
-		speechSynthesisObject.speak(utterance);
-		document.getElementById("controls").innerHTML = "<button onclick='pauseSpeechSynthesis();'>Pause</button><button onclick='cancelSpeechSynthesis();'>Cancel</button>";		
+//		// console.log(number_of_arrivals + " arrivals to speak");		
+//		string_to_speak = document.getElementById("destination-selector").value + " in ";
+//		minutes_to_speak = returnNumbersfromString(stripped_upcoming_upcoming_string); // returns a list of minutes (strings)
+//		iterator = 0;
+//		if (minutes_to_speak.length == 1) { // if we only have one result object
+//			//string_to_speak = string_to_speak + minutes_to_speak[i] + " minutes. "
+//			if (minutes_to_speak[0] == "1") {
+//				string_to_speak = string_to_speak + minutes_to_speak[0] + " minute. "
+//			} else {
+//				string_to_speak = string_to_speak + minutes_to_speak[0] + " minutes. "
+//			}
+//		}
+//		else {
+//			while (iterator < minutes_to_speak.length) {	
+//			if (iterator == minutes_to_speak.length - 1 ) { // if we're on the final item in the list 
+//				// string_to_speak = string_to_speak + minutes_to_speak[iterator] + " minutes. "
+//				
+//				if (minutes_to_speak[iterator] == "1") {
+//					string_to_speak = string_to_speak + minutes_to_speak[iterator] + " minute. "
+//				} else {
+//					string_to_speak = string_to_speak + minutes_to_speak[iterator] + " minutes. "
+//				}
+//				
+//				
+//			} else {
+//				// string_to_speak = string_to_speak + minutes_to_speak[iterator] + " minutes, and "
+//				
+//				if (minutes_to_speak[iterator] == "1") {
+//					string_to_speak = string_to_speak + minutes_to_speak[iterator] + " minute, and "
+//				} else {
+//					string_to_speak = string_to_speak + minutes_to_speak[iterator] + " minutes, and "
+//				}
+//				
+//				
+//			}
+//			iterator++; 	
+//			}
+//		}
+//		
+//		time_remaining_before_you_need_to_leave_for_earliest_train = parseInt(minutes_to_speak[0]) - parseInt(document.getElementById("minutes-selector").value);
+//		string_to_speak = string_to_speak + "Leave in " + time_remaining_before_you_need_to_leave_for_earliest_train + " minutes.";
+//		utterance.text = string_to_speak;
+//	//	utterance.text = stripped_upcoming_upcoming_string;
+//		console.log(utterance.text);
+//		speechSynthesisObject.speak(utterance);
+//		document.getElementById("controls").innerHTML = "<button onclick='pauseSpeechSynthesis();'>Pause</button><button onclick='cancelSpeechSynthesis();'>Cancel</button>";		
 		}
 	
 		var pauseSpeechSynthesis = function () {
